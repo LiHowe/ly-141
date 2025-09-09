@@ -1,0 +1,121 @@
+﻿<controls1:BaseSettingsControl x:Class="MainApp.Views.Settings.DatabaseSettingsControl"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:converters="clr-namespace:Core.Converters;assembly=Core"
+                              xmlns:hc="https://handyorg.github.io/handycontrol"
+                              xmlns:settings="clr-namespace:MainApp.ViewModels.Settings"
+                              xmlns:controls1="clr-namespace:UI.Controls;assembly=UI"
+                              d:DataContext="{d:DesignInstance settings:DatabaseSettingsViewModel}"
+                              mc:Ignorable="d"
+                              d:DesignHeight="600" d:DesignWidth="700">
+    <controls1:BaseSettingsControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </controls1:BaseSettingsControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="10">
+            <!-- 连接设置 -->
+            <GroupBox Header="连接设置" Margin="0,0,0,15">
+                <StackPanel Margin="10">
+                    <!-- 数据库类型 -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="数据库类型:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <hc:ComboBox ItemsSource="{Binding AvailableDatabaseTypes}"
+                                     SelectedItem="{Binding DatabaseType}" MinWidth="200" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="服务器地址:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <hc:TextBox Text="{Binding Host}" MinWidth="200" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="数据库:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <hc:TextBox Text="{Binding Database}" MinWidth="200" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="实例:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <hc:TextBox Text="{Binding InstanceName}" MinWidth="200" />
+                    </StackPanel>
+
+                    <!-- 连接字符串 -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="连接字符串:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <hc:TextBox Text="{Binding ConnectionString}" MinWidth="400" IsReadOnly="True"
+                                    TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <!-- 连接超时 -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="连接超时(秒):" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <hc:NumericUpDown Value="{Binding ConnectionTimeout}"
+                                          Minimum="1" Maximum="300" MinWidth="200" />
+                    </StackPanel>
+
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- 命令超时 -->
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock Text="命令超时(秒):" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                            <hc:NumericUpDown Value="{Binding CommandTimeout}"
+                                              Minimum="1" Maximum="600" MinWidth="200" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Command="{Binding TestConnectionCommand}">测试连接</Button>
+                        </StackPanel>
+                    </Grid>
+
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox
+                Visibility="{Binding IsMySql, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Header="MySQL 配置" Margin="0,0,0,10">
+                <StackPanel Margin="10">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="用户名:" VerticalAlignment="Center" Width="120" />
+                        <TextBox Width="200" Text="{Binding Username}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="密码:" VerticalAlignment="Center" Width="120" />
+                        <TextBox Width="200" Text="{Binding Password}" />
+                    </StackPanel>
+                    <!-- 字符编码 -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="字符编码:" VerticalAlignment="Center" Width="120" />
+                        <hc:ComboBox ItemsSource="{Binding AvailableCharsets}"
+                                     SelectedItem="{Binding Charset}" MinWidth="200" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox
+                Visibility="{Binding IsSqlServer, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Header="SQL Server 配置" Margin="0,0,0,10">
+                <StackPanel Margin="10">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <CheckBox Content="是否启用集成安全性" IsChecked="{Binding UseIntegratedSecurity}" />
+                    </StackPanel>
+                    <StackPanel
+                        Visibility="{Binding UseIntegratedSecurity, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=invert }">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="用户名:" VerticalAlignment="Center" Width="120" />
+                            <TextBox Width="200" Text="{Binding Username}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="密码:" VerticalAlignment="Center" Width="120" />
+                            <TextBox Width="200" Text="{Binding Password}" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+    </ScrollViewer>
+</controls1:BaseSettingsControl>

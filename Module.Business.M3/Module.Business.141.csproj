@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <AssemblyName>维美业务模块-M3</AssemblyName>
+        <Company>沈阳维美智能工业科技有限公司</Company>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <RootNamespace>Module.Business.M3</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Module.Business.Repair\Module.Business.Repair.csproj" />
+      <ProjectReference Include="..\Module.Business.Rivet\Module.Business.Rivet.csproj" />
+      <ProjectReference Include="..\Module.Business.Weld\Module.Business.Weld.csproj" />
+    </ItemGroup>
+
+</Project>

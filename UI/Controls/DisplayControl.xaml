@@ -1,0 +1,71 @@
+<UserControl x:Class="UI.Controls.DisplayControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:controls="clr-namespace:UI.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="80" d:DesignWidth="200">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <hc:Card
+        Background="{StaticResource BackgroundCardBrush}"
+        BorderBrush="{StaticResource BorderBrush}"
+        Padding="12,8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- 主标签 -->
+            <Label Grid.Row="0"
+                   x:Name="MainLabel"
+                   d:Content="主标签"
+                   Content="{Binding Label, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
+                   Style="{StaticResource FormLabelStyle}"
+                   FontSize="12"
+                   Foreground="{StaticResource TextSecondaryBrush}"
+                   HorizontalAlignment="Left" />
+
+            <!-- 副标签（英文） -->
+            <TextBlock Grid.Row="1"
+                       x:Name="SubLabelText"
+                       d:Text="SubTitle"
+                       Text="{Binding SubLabel, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
+                       FontSize="10"
+                       Foreground="{StaticResource TextDisabledBrush}"
+                       HorizontalAlignment="Left"
+                       Margin="0,2,0,4" />
+
+            <!-- 数值和单位 -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <TextBlock x:Name="ValueText"
+                           Text="{Binding Value, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
+                           FontSize="18"
+                           d:Text="666.66"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           VerticalAlignment="Center" />
+                <TextBlock x:Name="UnitText"
+                           Text="{Binding Unit, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
+                           FontSize="12"
+                           d:Text="V"
+                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Margin="4,0,0,0"
+                           VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Grid>
+    </hc:Card>
+</UserControl>

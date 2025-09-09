@@ -1,0 +1,276 @@
+﻿<UserControl x:Class="MainApp.Views.HistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:MainApp.ViewModels"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:controls="clr-namespace:UI.Controls;assembly=UI"
+             xmlns:core="clr-namespace:Core.Converters;assembly=Core"
+             d:DataContext="{d:DesignInstance vm:HistoryViewModel}"
+             mc:Ignorable="d"
+             d:DesignHeight="650" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- 引用Core模块的主题 -->
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- 搜索条件 -->
+        <hc:Card Margin="0,0,0,10">
+            <StackPanel Margin="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!--<StackPanel Grid.Column="1" Width="200" Margin="0,0,10,0">
+                        <TextBlock Text="开始时间:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <hc:DateTimePicker SelectedDateTime="{Binding StartTime}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Width="200" Margin="0,0,10,0">
+                        <TextBlock Text="结束时间:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <hc:DateTimePicker SelectedDateTime="{Binding EndTime}" />
+                    </StackPanel>-->
+                    <controls:TimeSelector Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,10,0" StartTime="{Binding StartTime, Mode=TwoWay}" EndTime="{Binding EndTime, Mode=TwoWay}"/>
+                    <StackPanel Grid.Column="3" Width="200" Margin="0,0,10,0">
+                        <TextBlock Text="零件码:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <TextBox Text="{Binding VinText}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="4" Width="100" Margin="0,0,10,0">
+                        <TextBlock Text="工作站:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <ComboBox ItemsSource="{Binding Workstations}"
+                                  SelectedItem="{Binding Station}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="5" Width="100" Margin="0,0,10,0">
+                        <TextBlock Text="质量:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <ComboBox ItemsSource="{Binding AvailableQualityStatus}" SelectedItem="{Binding QualityStatus}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="6" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="🔍 搜索" Command="{Binding SearchCommand}" Width="80" Height="32"
+                                Style="{StaticResource ButtonPrimary}" Margin="5,0" />
+                        <Button Content="📁 导出" Command="{Binding ExportCommand}" Width="80" Height="32" Margin="5,0" />
+                        <Button Content="🔄 重置" Command="{Binding ResetCommand}" Width="80" Height="32" Margin="5,0" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </hc:Card>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 零件列表 -->
+            <hc:Card Margin="0,0,2,0" BorderThickness="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" CornerRadius="4,4,0,0" Height="40" Background="{DynamicResource TitleBarBrush}"
+                            Padding="15,10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="📋 历史数据列表" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding TotalCount}" Visibility="{Binding TotalCount, Converter={StaticResource Boolean2VisibilityConverter}}" FontWeight="Bold" Margin="10, 0" Foreground="White" VerticalAlignment="Center" d:Text="0" />
+                        </StackPanel>
+                    </Border>
+                    <DataGrid ItemsSource="{Binding PartsList}"
+                              SelectedItem="{Binding SelectedPart}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              Grid.Row="1"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="零件码" Binding="{Binding SerialNo}" Width="Auto" />
+                            <DataGridTextColumn Header="创建时间"
+                                                Binding="{Binding CreateTime, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}"
+                                                Width="Auto" />
+                            <DataGridTextColumn Header="质量" Binding="{Binding Quality}" Width="Auto" />
+                        </DataGrid.Columns>
+                        <DataGrid.Style>
+                            <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridBaseStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding PartsList.Count}" Value="0">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <TextBlock Text="暂无数据" HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center" />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
+                    </DataGrid>
+                    <!-- 加载指示器 -->
+                    <Border Background="#80FFFFFF"
+                            Grid.Row="1"
+                            Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <hc:LoadingCircle Grid.Row="1" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock Text="正在加载..." HorizontalAlignment="Center" Margin="0, 10, 0 ,0" />
+                        </StackPanel>
+                    </Border>
+
+                    <hc:Pagination Grid.Row="2" MaxPageCount="{Binding TotalPages}"
+                                   Margin="0,10,0,0"
+                                   PageIndex="{Binding CurrentPage, Mode=TwoWay}"
+                                   DataCountPerPage="{Binding PageSize}"
+                                   PageUpdated="Pagination_PageChanged" />
+                </Grid>
+            </hc:Card>
+
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="{DynamicResource BorderBrush}" />
+
+            <!-- 详细数据 -->
+            <hc:Card Grid.Column="2" BorderThickness="0" Margin="2,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="{DynamicResource TitleBarBrush}" CornerRadius="4,4,0,0" Height="40">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🗃️ 数据详情 - " FontWeight="Bold" VerticalAlignment="Center"
+                                           Foreground="White" Margin="15,10,0, 10" />
+                                <TextBlock Text="{Binding SelectedPartSerialNo}" FontWeight="Bold"
+                                           VerticalAlignment="Center" Foreground="White" Margin="0,10" />
+                            </StackPanel>
+                            <ItemsControl Grid.Column="1" ItemsSource="{Binding HistoryDetailTabs}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Right"
+                                          Margin="10, 0"
+                                        >
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Content="{Binding Title}"
+                                            Command="{Binding DataContext.SelectHistoryDetailTabCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"
+                                            Margin="2,5"
+                                            MinWidth="60"
+                                            FontSize="12">
+                                            <Button.Style>
+                                                <Style TargetType="Button"
+                                                    BasedOn="{StaticResource ButtonDefault}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                                            <Setter Property="Background"
+                            Value="{DynamicResource PrimaryBrush}" />
+                                                            <Setter Property="Foreground" Value="{DynamicResource TextOnPrimaryBrush}"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Grid>
+                    </Border>
+                    <DataGrid Grid.Row="1" x:Name="HistoryDetailDataGrid" AutoGenerateColumns="True"
+                              IsReadOnly="True" 
+                              HeadersVisibility="Column" CanUserResizeColumns="True"
+                              ItemsSource="{Binding HistoryDetailData}">
+                        <DataGrid.Style>
+                            <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridBaseStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HistoryDetailData.Rows}" Value="0">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <TextBlock Text="暂无数据" HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center" />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
+                    </DataGrid>
+                    <!-- 加载指示器 -->
+                    <Border Background="#80FFFFFF"
+                        Grid.Row="1"
+                        Visibility="{Binding IsLoadingDetail, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <hc:LoadingCircle/>
+                            <TextBlock Text="正在加载..." Margin="0,10,0,0" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+            </hc:Card>
+            <GridSplitter Visibility="{Binding HasPlot}" Grid.Column="3" HorizontalAlignment="Stretch"
+                          Background="{DynamicResource BorderBrush}" />
+
+            <hc:Card Grid.Column="4" BorderThickness="0" Margin="2,0,0,0" Visibility="{Binding HasPlot}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="{DynamicResource TitleBarBrush}" CornerRadius="4,4,0,0"
+                            Padding="15,10" Height="40">
+                        <TextBlock Text="📈 趋势图表" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
+                    </Border>
+                    
+                    <StackPanel Grid.Row="1" Margin="10">
+                        <ItemsControl ItemsSource="{Binding HistoryDetailPlots}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <controls:PlotControl VerticalAlignment="Stretch" Height="200"
+                                                    ViewModel="{Binding}" />
+                                    </StackPanel>   
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                    <!-- 加载指示器 -->
+                    <Border Background="#80FFFFFF"
+                            Grid.Row="1"
+                            Visibility="{Binding IsLoadingDetail, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <hc:LoadingCircle/>
+                            <TextBlock Text="正在加载..." Margin="0,10,0,0" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </hc:Card>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

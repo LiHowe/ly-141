@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <AssemblyName>维美业务模块-返修</AssemblyName>
+        <Company>沈阳维美智能工业科技有限公司</Company>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <RootNamespace>Module.Business.Repair</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="..\UI\UI.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Quartz" Version="3.15.0" />
+    </ItemGroup>
+
+</Project>

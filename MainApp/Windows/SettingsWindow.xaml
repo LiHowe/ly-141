@@ -1,0 +1,166 @@
+﻿<Window x:Class="MainApp.Windows.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        Width="1000" Height="700"
+        Title="SettingsWindow" d:DesignHeight="700" d:DesignWidth="1000">
+    <Border Background="{StaticResource BackgroundCardBrush}"
+            BorderBrush="{StaticResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="8"
+            Margin="10">
+        <Border.Effect>
+            <DropShadowEffect Color="{StaticResource ShadowColor}"
+                              BlurRadius="15"
+                              ShadowDepth="5"
+                              Opacity="0.3" />
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 标题栏 -->
+            <Border Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0"
+                    x:Name="TitleBar"
+                    Background="{StaticResource TitleBarBrush}"
+                    CornerRadius="8,8,0,0"
+                    Padding="10,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- 图标 -->
+                    <TextBlock x:Name="IconTextBlock"
+                               Grid.Column="0"
+                               Text="&#xe657;"
+                               FontFamily="{StaticResource Icon}"
+                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               Margin="0,0,10,0" />
+
+                    <!-- 标题 -->
+                    <TextBlock x:Name="TitleTextBlock"
+                               Grid.Column="1"
+                               Text="系统设置"
+                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center" />
+
+                    <!-- 关闭按钮 -->
+                    <Button x:Name="CloseButton"
+                            Grid.Column="2"
+                            hc:IconElement.Geometry="{StaticResource CloseGeometry}"
+                            Style="{StaticResource CloseButtonStyle}"
+                            hc:BackgroundSwitchElement.MouseHoverBackground="Red"
+                            Width="30" Height="30"
+                            Foreground="{StaticResource TextOnPrimaryBrush}"
+                            Click="CloseButton_Click" />
+                </Grid>
+            </Border>
+
+
+            <!-- 左侧设置分类 -->
+            <Border Grid.Row="1" Grid.Column="0" Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="0,0,1,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <!-- 系统设置分类 -->
+                        <Button x:Name="SystemSettingsButton" Content="系统设置" Height="35" Margin="0,0,0,5"
+                                Click="SettingsCategory_Click" Tag="System" HorizontalAlignment="Stretch" />
+
+                        <Button x:Name="DatabaseSettingsButton" Content="数据库设置" Height="35" Margin="0,0,0,5"
+                                Click="SettingsCategory_Click" Tag="Database" HorizontalAlignment="Stretch" />
+
+                        <Button x:Name="PlcSettingsButton" Content="PLC设置" Height="35" Margin="0,0,0,5"
+                                Click="SettingsCategory_Click" Tag="Plc" HorizontalAlignment="Stretch" />
+
+                        <Button x:Name="HistorySettingsButton" Content="历史查询设置" Height="35" Margin="0,0,0,5"
+                                Click="SettingsCategory_Click" Tag="HistoryDetail" HorizontalAlignment="Stretch" />
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- 右侧设置内容 -->
+            <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- 标题栏 -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,0,0,0">
+                    <TextBlock x:Name="SettingsTitleTextBlock" Text="通用设置"
+                               FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+                    <Button x:Name="RefreshButton" Width="60" Height="30" Margin="15,0,0,0"
+                            ToolTip="刷新设置" Content="刷新" Click="RefreshButton_Click" />
+
+                    <!-- 未保存更改指示器 -->
+                    <Border x:Name="UnsavedChangesIndicator" Background="#FFF3CD" BorderBrush="#FFEAA7"
+                            BorderThickness="1" CornerRadius="3" Padding="8,4" Margin="15,0,0,0"
+                            Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="●" Foreground="#856404" FontWeight="Bold" VerticalAlignment="Center" />
+                            <TextBlock Text="有未保存的更改" Foreground="#856404" Margin="5,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- 设置内容 -->
+                <ContentControl Grid.Row="1" x:Name="SettingsContentControl" />
+
+                <Grid Grid.Row="2" Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                        <Button x:Name="OpenButton" Height="35"
+                                Click="OpenButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xebdf;" FontFamily="{StaticResource Icon}" FontSize="16"
+                                           VerticalAlignment="Center" Margin="0,0,5,0" />
+                                <TextBlock Text="打开配置目录" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="LogButton" Click="LogButton_Click" Height="35" Margin="10,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xeb6a;" FontFamily="{StaticResource Icon}" FontSize="16"
+                                           VerticalAlignment="Center" Margin="0,0,5,0" />
+                                <TextBlock Text="查看日志" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <!-- 底部按钮 -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="SaveButton" Content="保存" Width="80" Height="35" Margin="0,0,10,0"
+                                Click="SaveButton_Click" Style="{DynamicResource ButtonPrimary}" />
+                        <Button x:Name="ApplyButton" Content="应用" Width="80" Height="35" Margin="0,0,10,0"
+                                Click="ApplyButton_Click" />
+                        <Button x:Name="ResetButton" Content="重置" Width="80" Height="35"
+                                Click="ResetButton_Click" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

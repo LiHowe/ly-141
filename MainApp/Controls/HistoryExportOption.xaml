@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="MainApp.Controls.HistoryExportOption"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:MainApp.Controls"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance controls:HistoryExportOptionViewModel}"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- 导出选项 -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <!-- 导出范围 -->
+            <GroupBox Header="导出范围" Margin="0,0,10,0">
+                <StackPanel Margin="10">
+                    <RadioButton x:Name="ExportAllRadio"
+                                 Content="导出全部数据"
+                                 IsChecked="{Binding ExportAll}"
+                                 Margin="0,0,0,10" />
+                    <RadioButton x:Name="ExportSelectedRadio"
+                                 Content="导出选中数据"
+                                 IsChecked="{Binding ExportSelected}"
+                                 IsEnabled="{Binding HasSelectedPart}"
+                                 Margin="0,0,0,5" />
+                    <TextBlock Text="{Binding SelectedPartInfo}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               Margin="20,0,0,0"
+                               Visibility="{Binding HasSelectedPart, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                </StackPanel>
+            </GroupBox>
+
+            <!-- 导出类型 -->
+            <GroupBox Grid.Column="1" Header="导出详情类型">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- 操作按钮 -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Content="全选"
+                                Command="{Binding SelectAllCommand}"
+                                Style="{StaticResource ButtonPrimary}"
+                                Width="60" Height="30"
+                                Margin="0,0,10,0" />
+                        <Button Content="反选"
+                                Command="{Binding InvertSelectionCommand}"
+                                Style="{StaticResource ButtonDefault}"
+                                Width="60" Height="30" />
+                    </StackPanel>
+
+                    <!-- 类型列表 -->
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding ExportTypes}"
+                             Height="200"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             BorderThickness="1"
+                             Style="{StaticResource ListBox.Small}"
+                             BorderBrush="{DynamicResource BorderBrush}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding DisplayName}"
+                                          IsChecked="{Binding IsSelected}"
+                                          Margin="10,5"
+                                          FontSize="14" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <!-- 选择统计 -->
+                    <TextBlock Grid.Row="2"
+                               Text="{Binding SelectionSummary}"
+                               FontSize="12"
+                               Foreground="{DynamicResource SecondaryTextBrush}"
+                               Margin="0,10,0,0" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <!-- 进度条 -->
+        <ProgressBar Grid.Row="2"
+                     Height="20"
+                     Margin="0,10,0,10"
+                     Value="{Binding ExportProgress}"
+                     Visibility="{Binding IsExporting, Converter={StaticResource Boolean2VisibilityConverter}}" />
+
+        <!-- 底部按钮 -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="取消"
+                    Command="{Binding CancelCommand}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="80" Height="35"
+                    Margin="0,0,10,0" />
+            <Button Content="导出"
+                    Command="{Binding ExportCommand}"
+                    Style="{StaticResource ButtonSuccess}"
+                    Width="80" Height="35"
+                    IsEnabled="{Binding CanExport}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

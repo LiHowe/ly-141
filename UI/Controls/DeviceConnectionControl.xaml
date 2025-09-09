@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="UI.Controls.DeviceConnectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:UI.Controls"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             d:DataContext="{d:DesignInstance local:DeviceConnectionViewModel}"
+             mc:Ignorable="d"
+             d:DesignHeight="30" d:DesignWidth="100">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" ToolTip="{Binding TipContent}">
+            <hc:Interaction.Triggers>
+                <hc:EventTrigger EventName="MouseLeftButtonUp">
+                    <hc:InvokeCommandAction Command="{Binding HandleClickCommand}" />
+                </hc:EventTrigger>
+            </hc:Interaction.Triggers>
+            <TextBlock Text="{Binding Icon}" Margin="5,0" Foreground="{Binding StatusBrush}"
+                       FontFamily="{StaticResource Icon}" FontSize="24" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</UserControl>

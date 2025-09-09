@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Company>沈阳维美智能工业科技有限公司</Company>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="HandyControl" Version="3.5.1" />
+    <PackageReference Include="MiniExcel" Version="1.41.3" />
+    <PackageReference Include="ScottPlot.WPF" Version="5.0.56" />
+    <PackageReference Include="System.Management" Version="9.0.8" />
+    <PackageReference Include="WinM.Connection.S7" Version="2.2.3" />
+    <PackageReference Include="WinM.Data.SqlSugar" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Settings\AllSettings.cs" />
+  </ItemGroup>
+
+</Project>

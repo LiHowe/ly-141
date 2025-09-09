@@ -1,0 +1,147 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========================================
+         WinmTech-Scada 工业数据采集系统 - 颜色定义
+         ======================================== -->
+
+    <Color x:Key="TitleBarColor">#243b76</Color>
+
+    <!-- 主色调 - Primary Colors -->
+    <Color x:Key="PrimaryColor">#0f61d4</Color>
+    <Color x:Key="PrimaryDarkColor">#0f4ca2</Color>
+    <Color x:Key="PrimaryLightColor">#72A7F1</Color>
+
+    <!-- 辅助色调 - Secondary Colors -->
+    <Color x:Key="SecondaryColor">#D69500</Color>
+    <Color x:Key="SecondaryDarkColor">#D67A00</Color>
+    <Color x:Key="SecondaryLightColor">#D6C900</Color>
+
+    <!-- 背景色 - Background Colors -->
+    <Color x:Key="BackgroundPrimaryColor">#FAFAFA</Color>
+    <Color x:Key="BackgroundSecondaryColor">#F5F5F5</Color>
+    <Color x:Key="BackgroundDarkColor">#263238</Color>
+    <Color x:Key="BackgroundCardColor">#FFFFFF</Color>
+
+    <!-- 表面色 - Surface Colors -->
+    <Color x:Key="SurfaceColor">#FFFFFF</Color>
+    <Color x:Key="SurfaceDarkColor">#37474F</Color>
+    <Color x:Key="SurfaceVariantColor">#ECEFF1</Color>
+
+    <!-- 文本色 - Text Colors -->
+    <Color x:Key="TextPrimaryColor">#212121</Color>
+    <Color x:Key="TextSecondaryColor">#757575</Color>
+    <Color x:Key="TextDisabledColor">#BDBDBD</Color>
+    <Color x:Key="TextOnPrimaryColor">#FFFFFF</Color>
+    <Color x:Key="TextOnSecondaryColor">#000000</Color>
+
+    <!-- 状态色 - Status Colors -->
+    <Color x:Key="SuccessColor">#4CAF50</Color>
+    <Color x:Key="WarningColor">#FF9800</Color>
+    <Color x:Key="ErrorColor">#F44336</Color>
+    <Color x:Key="InfoColor">#2196F3</Color>
+
+    <!-- 工业状态色 - Industrial Status Colors -->
+    <Color x:Key="RunningColor">#4CAF50</Color>
+    <Color x:Key="StoppedColor">#9E9E9E</Color>
+    <Color x:Key="AlarmColor">#F44336</Color>
+    <Color x:Key="WarningIndustrialColor">#FF9800</Color>
+    <Color x:Key="MaintenanceColor">#9C27B0</Color>
+
+    <!-- 边框色 - Border Colors -->
+    <Color x:Key="BorderColor">#E0E0E0</Color>
+    <Color x:Key="BorderDarkColor">#BDBDBD</Color>
+    <Color x:Key="BorderFocusColor">#2196F3</Color>
+
+    <!-- 阴影色 - Shadow Colors -->
+    <Color x:Key="ShadowColor">#1A000000</Color>
+    <Color x:Key="ShadowDarkColor">#33000000</Color>
+
+    <!-- 悬停和选中状态色 - Hover and Selected Colors -->
+    <Color x:Key="HoverColor">#0D2196F3</Color>
+    <Color x:Key="SelectedColor">#1A2196F3</Color>
+    <Color x:Key="PressedColor">#332196F3</Color>
+
+    <!-- ========================================
+         画刷定义 - Brush Definitions
+         ======================================== -->
+    <SolidColorBrush x:Key="TitleBarBrush" Color="{StaticResource TitleBarColor}" />
+
+    <!-- 主色调画刷 -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="PrimaryDarkBrush" Color="{StaticResource PrimaryDarkColor}" />
+    <SolidColorBrush x:Key="PrimaryLightBrush" Color="{StaticResource PrimaryLightColor}" />
+
+    <!-- 辅助色画刷 -->
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+    <SolidColorBrush x:Key="SecondaryDarkBrush" Color="{StaticResource SecondaryDarkColor}" />
+    <SolidColorBrush x:Key="SecondaryLightBrush" Color="{StaticResource SecondaryLightColor}" />
+
+    <!-- 背景色画刷 -->
+    <SolidColorBrush x:Key="BackgroundPrimaryBrush" Color="{StaticResource BackgroundPrimaryColor}" />
+    <SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{StaticResource BackgroundSecondaryColor}" />
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDarkColor}" />
+    <SolidColorBrush x:Key="BackgroundCardBrush" Color="{StaticResource BackgroundCardColor}" />
+
+    <!-- 表面色画刷 -->
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceColor}" />
+    <SolidColorBrush x:Key="SurfaceDarkBrush" Color="{StaticResource SurfaceDarkColor}" />
+    <SolidColorBrush x:Key="SurfaceVariantBrush" Color="{StaticResource SurfaceVariantColor}" />
+
+    <!-- 文本色画刷 -->
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}" />
+    <SolidColorBrush x:Key="TextDisabledBrush" Color="{StaticResource TextDisabledColor}" />
+    <SolidColorBrush x:Key="TextOnPrimaryBrush" Color="{StaticResource TextOnPrimaryColor}" />
+    <SolidColorBrush x:Key="TextOnSecondaryBrush" Color="{StaticResource TextOnSecondaryColor}" />
+
+    <!-- 状态色画刷 -->
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}" />
+    <SolidColorBrush x:Key="InfoBrush" Color="{StaticResource InfoColor}" />
+
+    <!-- 工业状态色画刷 -->
+    <SolidColorBrush x:Key="RunningBrush" Color="{StaticResource RunningColor}" />
+    <SolidColorBrush x:Key="StoppedBrush" Color="{StaticResource StoppedColor}" />
+    <SolidColorBrush x:Key="AlarmBrush" Color="{StaticResource AlarmColor}" />
+    <SolidColorBrush x:Key="WarningIndustrialBrush" Color="{StaticResource WarningIndustrialColor}" />
+    <SolidColorBrush x:Key="MaintenanceBrush" Color="{StaticResource MaintenanceColor}" />
+
+    <!-- 边框色画刷 -->
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}" />
+    <SolidColorBrush x:Key="BorderDarkBrush" Color="{StaticResource BorderDarkColor}" />
+    <SolidColorBrush x:Key="BorderFocusBrush" Color="{StaticResource BorderFocusColor}" />
+
+    <!-- 阴影色画刷 -->
+    <SolidColorBrush x:Key="ShadowBrush" Color="{StaticResource ShadowColor}" />
+    <SolidColorBrush x:Key="ShadowDarkBrush" Color="{StaticResource ShadowDarkColor}" />
+
+    <!-- 悬停和选中状态画刷 -->
+    <SolidColorBrush x:Key="HoverBrush" Color="{StaticResource HoverColor}" />
+    <SolidColorBrush x:Key="SelectedBrush" Color="{StaticResource SelectedColor}" />
+    <SolidColorBrush x:Key="PressedBrush" Color="{StaticResource PressedColor}" />
+
+    <!-- ========================================
+         渐变画刷 - Gradient Brushes
+         ======================================== -->
+
+    <!-- 主要渐变 -->
+    <LinearGradientBrush x:Key="PrimaryGradientBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource PrimaryLightColor}" Offset="0" />
+        <GradientStop Color="{StaticResource PrimaryColor}" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- 卡片阴影渐变 -->
+    <LinearGradientBrush x:Key="CardShadowBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#10000000" Offset="0" />
+        <GradientStop Color="#20000000" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- 标题栏渐变 -->
+    <LinearGradientBrush x:Key="TitleBarGradientBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource PrimaryDarkColor}" Offset="0" />
+        <GradientStop Color="{StaticResource PrimaryColor}" Offset="1" />
+    </LinearGradientBrush>
+
+</ResourceDictionary>
