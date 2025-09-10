@@ -1,5 +1,6 @@
 ﻿using MainApp.Menu;
 using MainApp.Views;
+using Core.Properties;
 
 namespace MainApp;
 
@@ -16,7 +17,7 @@ public class MenuDefinition
 
         MenuItem
             .For<MonitorView>()
-            .WithText("OP10监测")
+            .WithTextKey(nameof(Lang.MonitorMenu))
             .WithImmediateInit()
             .WithFirstShow()
             .WithImagePath("Resources/Images/history.png")

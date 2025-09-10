@@ -5,7 +5,8 @@ namespace MainApp.Menu;
 public interface IMenuConfig
 {
     string Text { get; }
-    ImageSource Image { get; }
+    string TextKey { get; }
+	ImageSource Image { get; }
     string ImagePath { get; }
     bool UseCache { get; }
     int Sort { get; }

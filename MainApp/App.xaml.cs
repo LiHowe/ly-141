@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using Core.Localization;
+using Core.Properties;
+using HandyControl.Tools;
+using System.Globalization;
+using System.Windows;
 
 namespace MainApp;
 
@@ -23,7 +27,16 @@ public partial class App : Application
         }
 
         base.OnStartup(e);
-        await ApplicationInitializer.Initialize();
+
+		// 加载上次保存的语言设置，默认为 zh-CN
+		string savedCulture = Settings.Default.SelectedCulture ?? "zh-CN";
+		// 1) 初始化默认 Provider（指向 Core 里生成的 Lang 类型）
+		LocalizationProvider.Default.LangType = typeof(Lang); // Lang 为 resx 生成的类
+
+		// 2) 设置默认语言（中文）
+		LocalizationProvider.Default.SetCulture(new CultureInfo(savedCulture));
+    
+		await ApplicationInitializer.Initialize();
     }
 
     protected override void OnExit(ExitEventArgs e)
@@ -32,4 +45,10 @@ public partial class App : Application
         _mutex = null;
         base.OnExit(e);
     }
+
+	public static void SwitchLanguage(string cultureCode)
+	{
+        ConfigHelper.Instance.SetLang(cultureCode);
+		LocalizationProvider.Default.SetCulture(new CultureInfo(cultureCode));
+	}
 }

@@ -1,15 +1,18 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Connection.S7;
 using Core;
 using Core.Interfaces;
-
+using Core.Localization;
+using Core.Messages;
 using Core.Models.Settings;
 using Core.Services;
 using Core.Utils;
 using Logger;
+using System.Collections.Concurrent;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using UI.Controls;
 
 namespace MainApp.ViewModels;
@@ -17,7 +20,7 @@ namespace MainApp.ViewModels;
 /// <summary>
 ///     主窗体视图模型
 /// </summary>
-public partial class MainWindowViewModel : ObservableObject, IDisposable
+public partial class MainWindowViewModel : ObservableObject, IDisposable, IRecipient<CultureChangedMessage>
 {
     private readonly ConcurrentDictionary<DeviceConnectionViewModel, S7Plc> _plcMap = new();
 
@@ -48,11 +51,12 @@ public partial class MainWindowViewModel : ObservableObject, IDisposable
     {
         // 实时更新系统时间
         _systemTimeTimer =
-            new Timer(state => { SystemTime = "系统时间: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); }, null, 0,
+            new Timer(state => { SystemTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); }, null, 0,
                 1000);
-
-        // 标题与系统设置进行绑定
-        var sysConfig = ConfigManager.Instance.LoadConfig<SystemSettings>(Constants.SystemConfigFilePath);
+		// 注册消息
+		WeakReferenceMessenger.Default.Register<CultureChangedMessage>(this);
+		// 标题与系统设置进行绑定
+		var sysConfig = ConfigManager.Instance.LoadConfig<SystemSettings>(Constants.SystemConfigFilePath);
         EnableDiskMonitor = sysConfig.IsUseDiskWatcher;
         Title = sysConfig.SystemName;
         SubTitle = sysConfig.SystemSubName;
@@ -65,7 +69,14 @@ public partial class MainWindowViewModel : ObservableObject, IDisposable
         InitDeviceStatusBar();
     }
 
-    private async Task InitDeviceStatusBar()
+	// 实现 IRecipient 接口，处理语言切换消息
+	public void Receive(CultureChangedMessage message)
+	{
+		// 可选择更新 ViewModel 特定属性
+		// 例如：OnPropertyChanged(nameof(SomeProperty));
+	}
+
+	private async Task InitDeviceStatusBar()
     {
         var plcConfig = await ConfigManager.Instance.LoadPlcConfigAsync();
         // 每5秒检测设备连接状态
@@ -158,6 +169,19 @@ public partial class MainWindowViewModel : ObservableObject, IDisposable
             }
         });
     }
+
+    [RelayCommand]
+    private async Task SwitchLanguage()
+    {
+        await UIThreadHelper.InvokeAsync(() =>
+        {
+			//LocalizationService.Instance.CurrentCulture = cultureCode ?? "zh-CN";
+			string cultureCode =  LocalizationProvider.Default.Culture.Name == "zh-CN" ? "fr-FR" : "zh-CN";
+			App.SwitchLanguage(cultureCode);
+   //         Core.Properties.Settings.Default.SelectedCulture = cultureCode;
+			//Core.Properties.Settings.Default.Save();
+        });
+	}
 
     private void OnConfigChanged(object? sender, ConfigChangedEventArgs e)
     {

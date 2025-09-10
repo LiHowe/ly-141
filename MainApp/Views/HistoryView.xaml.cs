@@ -1,6 +1,7 @@
-﻿using System.Windows.Controls;
-using HandyControl.Data;
+﻿using HandyControl.Data;
 using MainApp.ViewModels;
+using System.Globalization;
+using System.Windows.Controls;
 
 namespace MainApp.Views;
 
@@ -14,7 +15,8 @@ public partial class HistoryView : UserControl
     public HistoryView()
     {
         _viewModel ??= new HistoryViewModel();
-        DataContext = _viewModel;
+		Thread.CurrentThread.CurrentUICulture = CultureInfo.CurrentUICulture;
+		DataContext = _viewModel;
         InitializeComponent();
     }
 

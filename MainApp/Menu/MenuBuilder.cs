@@ -50,7 +50,13 @@ public class MenuBuilder<TControl> : IMenuBuilder<MenuBuilder<TControl>, TContro
         return this;
     }
 
-    public MenuBuilder<TControl> WithImmediateInit(bool immediateInit = true)
+	public MenuBuilder<TControl> WithTextKey(string key)
+	{
+		_config.TextKey = key;
+		return this;
+	}
+
+	public MenuBuilder<TControl> WithImmediateInit(bool immediateInit = true)
     {
         _config.ImmediateInit = immediateInit;
         return this;

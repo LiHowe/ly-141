@@ -1,6 +1,4 @@
 ﻿using Core.Services;
-using Module.Business;
-using Module.Business.Repair;
 
 namespace MainApp.Initializers;
 
@@ -11,8 +9,8 @@ public class ModuleInitializer : IInitializer
         ModuleManager moduleManager = new();
         ServiceManager serviceManager = new();
         ServiceLocator.SetServiceManager(serviceManager);
-        moduleManager.RegisterModuleAsync(new WeldBusinessModule());
-        moduleManager.RegisterModuleAsync(new RepairBusinessModule());
+        //moduleManager.RegisterModuleAsync(new WeldBusinessModule());
+        //moduleManager.RegisterModuleAsync(new RepairBusinessModule());
         return moduleManager.InitializeAllModulesAsync();
     }
 }

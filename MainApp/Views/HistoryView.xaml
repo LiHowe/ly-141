@@ -7,6 +7,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:controls="clr-namespace:UI.Controls;assembly=UI"
              xmlns:core="clr-namespace:Core.Converters;assembly=Core"
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
              d:DataContext="{d:DesignInstance vm:HistoryViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="650" d:DesignWidth="1200">
@@ -61,7 +62,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="6" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Content="🔍 搜索" Command="{Binding SearchCommand}" Width="80" Height="32"
+                        <Button Content="{loc:Lang Search}" Command="{Binding SearchCommand}" Width="80" Height="32"
                                 Style="{StaticResource ButtonPrimary}" Margin="5,0" />
                         <Button Content="📁 导出" Command="{Binding ExportCommand}" Width="80" Height="32" Margin="5,0" />
                         <Button Content="🔄 重置" Command="{Binding ResetCommand}" Width="80" Height="32" Margin="5,0" />

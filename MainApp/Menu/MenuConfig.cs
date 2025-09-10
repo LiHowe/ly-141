@@ -7,8 +7,16 @@ namespace MainApp.Menu;
 public class MenuConfig : IMenuConfig
 {
     public string Text { get; internal set; }
-    public ImageSource Image { get; internal set; }
 
+	/// <summary>
+	/// 对应国际化资源的 Key
+	/// </summary>
+	public string TextKey { get; internal set; }
+	public ImageSource Image { get; internal set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public string ImagePath { get; internal set; }
     public bool UseCache { get; internal set; } = true;
     public int Sort { get; internal set; } = 0;

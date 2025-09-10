@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:vm="clr-namespace:MainApp.ViewModels"
+        xmlns:core="clr-namespace:Core.Services;assembly=Core"
+        xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
         xmlns:controls="clr-namespace:UI.Controls;assembly=UI"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         mc:Ignorable="d"
@@ -83,7 +85,17 @@
 
                     <!-- 右侧：用户信息、设置和窗体控制 -->
                     <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
-                        <!-- 用户信息 -->
+                        <!-- 语言切换 -->
+                        <Button Name="LangButton"
+                                Foreground="White"
+                                Content="&#xebe2;"
+                                FontFamily="{StaticResource Icon}"
+                                Style="{StaticResource ButtonDefault}"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                FontSize="16"
+                                ToolTip="设置"
+                                Command="{Binding SwitchLanguageCommand}"/>
 
                         <!-- 设置按钮 -->
                         <Button Name="SettingsButton"
@@ -103,7 +115,7 @@
                                 Style="{StaticResource ButtonIcon}"
                                 hc:IconElement.Geometry="{StaticResource AskGeometry}"
                                 Foreground="White"
-                                ToolTip="关于"
+                                ToolTip="{loc:Lang About}"
                                 Click="AboutButton_Click" />
 
                         <!-- 窗体控制按钮 -->

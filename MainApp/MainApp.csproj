@@ -17,6 +17,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Core\Core.csproj" />
         <ProjectReference Include="..\Module.Business.M3\Module.Business.141.csproj" />
+        <ProjectReference Include="..\UI\UI.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -33,21 +34,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Resources\Fonts\winm.ttf" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Resource Update="Resources\Fonts\winm.ttf">
-        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      </Resource>
-    </ItemGroup>
-
-    <ItemGroup>
         <Page Update="Views\Settings\PlcSettingsControl.xaml">
             <Generator>MSBuild:Compile</Generator>
             <XamlRuntime>Wpf</XamlRuntime>
             <SubType>Designer</SubType>
         </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Properties\" />
     </ItemGroup>
 
 </Project>

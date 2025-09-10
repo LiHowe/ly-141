@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using Core.Localization;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -35,7 +37,24 @@ public class MenuManager : IMenuManager
         var imgSource = config.Image == null
             ? new BitmapImage(new Uri(config.ImagePath, UriKind.RelativeOrAbsolute))
             : config.Image;
-        var button = new Button
+
+        var textBlock = new TextBlock
+        {
+            Text = config.Text ?? new LangExtension(config.TextKey).ProvideValue(null)?.ToString(),
+            VerticalAlignment = VerticalAlignment.Center
+        };
+        if (config.TextKey != null)
+        {
+			textBlock.SetBinding(TextBlock.TextProperty,
+			new Binding($"[{config.TextKey}]")
+			{
+				Source = LocalizationProvider.Default,
+				Mode = BindingMode.OneWay,
+				UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+			});
+		}
+
+		var button = new Button
         {
             Name = config.Text,
             Content = new StackPanel
@@ -50,12 +69,8 @@ public class MenuManager : IMenuManager
                         Height = 16,
                         Margin = new Thickness(0, 0, 5, 0)
                     },
-                    new TextBlock
-                    {
-                        Text = config.Text,
-                        VerticalAlignment = VerticalAlignment.Center
-                    }
-                }
+					textBlock
+				}
             },
             MinWidth = 120,
             Height = 30,

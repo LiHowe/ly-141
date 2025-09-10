@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Core.Events;
 using Core.Services;
+using HandyControl.Tools;
 using Logger;
 using MainApp.Menu;
 using MainApp.ViewModels;
@@ -87,10 +88,26 @@ public partial class MainWindow : Window
         }
     }
 
-    /// <summary>
-    ///     最小化按钮点击事件
-    /// </summary>
-    private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+    private void LangButton_Click(object sender, RoutedEventArgs e)
+    {
+        ConfigHelper.Instance.SetLang("fr");
+        var current = Thread.CurrentThread.CurrentCulture.IetfLanguageTag;
+        if (current == "zh-CN")
+        {
+            ConfigHelper.Instance.SetLang("fr");
+            App.SwitchLanguage("fr-FR");
+        }
+        else
+        {
+            ConfigHelper.Instance.SetLang("zh");
+            App.SwitchLanguage("zh-CN");
+        }
+    }
+
+	/// <summary>
+	///     最小化按钮点击事件
+	/// </summary>
+	private void MinimizeButton_Click(object sender, RoutedEventArgs e)
     {
         WindowState = WindowState.Minimized;
     }

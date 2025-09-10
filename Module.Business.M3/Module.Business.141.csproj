@@ -13,9 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Module.Business.Repair\Module.Business.Repair.csproj" />
-      <ProjectReference Include="..\Module.Business.Rivet\Module.Business.Rivet.csproj" />
-      <ProjectReference Include="..\Module.Business.Weld\Module.Business.Weld.csproj" />
+      <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 
 </Project>
