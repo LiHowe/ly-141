@@ -17,8 +17,8 @@
     </UserControl.Resources>
 
     <hc:Card
-        Background="{StaticResource BackgroundCardBrush}"
-        BorderBrush="{StaticResource BorderBrush}"
+        Background="{StaticResource SecondaryBorderBrush}"
+        BorderBrush="{StaticResource SecondaryBorderBrush}"
         Padding="12,8">
         <Grid>
             <Grid.RowDefinitions>
@@ -34,7 +34,7 @@
                    Content="{Binding Label, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
                    Style="{StaticResource FormLabelStyle}"
                    FontSize="12"
-                   Foreground="{StaticResource TextSecondaryBrush}"
+                   Foreground="{StaticResource PrimaryTextBrush}"
                    HorizontalAlignment="Left" />
 
             <!-- 副标签（英文） -->
@@ -43,7 +43,7 @@
                        d:Text="SubTitle"
                        Text="{Binding SubLabel, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
                        FontSize="10"
-                       Foreground="{StaticResource TextDisabledBrush}"
+                       Foreground="{StaticResource PrimaryTextBrush}"
                        HorizontalAlignment="Left"
                        Margin="0,2,0,4" />
 
@@ -56,13 +56,13 @@
                            FontSize="18"
                            d:Text="666.66"
                            FontWeight="Bold"
-                           Foreground="{StaticResource TextPrimaryBrush}"
+                           Foreground="{StaticResource PrimaryTextBrush}"
                            VerticalAlignment="Center" />
                 <TextBlock x:Name="UnitText"
                            Text="{Binding Unit, RelativeSource={RelativeSource AncestorType=controls:DisplayControl}}"
                            FontSize="12"
                            d:Text="V"
-                           Foreground="{StaticResource TextSecondaryBrush}"
+                           Foreground="{StaticResource PrimaryTextBrush}"
                            Margin="4,0,0,0"
                            VerticalAlignment="Bottom" />
             </StackPanel>

@@ -43,16 +43,23 @@ public class MenuManager : IMenuManager
             Text = config.Text ?? new LangExtension(config.TextKey).ProvideValue(null)?.ToString(),
             VerticalAlignment = VerticalAlignment.Center
         };
-        if (config.TextKey != null)
+        try
         {
-			textBlock.SetBinding(TextBlock.TextProperty,
-			new Binding($"[{config.TextKey}]")
-			{
-				Source = LocalizationProvider.Default,
-				Mode = BindingMode.OneWay,
-				UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-			});
-		}
+            if (config.TextKey != null && !string.IsNullOrWhiteSpace(config.TextKey))
+            {
+                textBlock.SetBinding(TextBlock.TextProperty,
+                    new Binding($"[{config.TextKey}]")
+                    {
+                        Source = LocalizationProvider.Default,
+                        Mode = BindingMode.OneWay,
+                        UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+                    });
+            }
+        }
+        catch (Exception ex)
+        {
+            // ignore
+        }
 
 		var button = new Button
         {

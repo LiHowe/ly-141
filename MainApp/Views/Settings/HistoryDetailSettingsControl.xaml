@@ -63,7 +63,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackPanel Grid.Column="0" HorizontalAlignment="Stretch">
-                                        <TextBlock Text="{Binding Title}" FontWeight="SemiBold" FontSize="14" />
+                                        <TextBlock Text="{Binding Title}" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" FontSize="14" />
                                         <TextBlock Text="{Binding Model}" FontSize="12"
                                                    Foreground="{DynamicResource SecondaryTextBrush}" Margin="0,2,0,0" />
                                     </StackPanel>

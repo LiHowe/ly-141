@@ -60,7 +60,8 @@ namespace Core.Localization
 			{
 				if (_rm == null) return key ?? string.Empty;
 				if (string.IsNullOrEmpty(key)) return string.Empty;
-				var name = key.Replace('_', '.'); // 如果你在 resx 中使用 dot 分隔，也可以去掉这步
+				//var name = key.Replace('_', '.'); // 如果你在 resx 中使用 dot 分隔，也可以去掉这步
+				var name = key;
 				try
 				{
 					var val = _culture == null ? _rm.GetString(name) : _rm.GetString(name, _culture);

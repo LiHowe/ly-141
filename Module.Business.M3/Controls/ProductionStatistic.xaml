@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Module.Business.SG141.Controls.ProductionStatistic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
+             xmlns:local="clr-namespace:Module.Business.SG141.Controls"
+             xmlns:plot="http://schemas.scottplot.net/2008/xaml/presentation"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- 引用HandyControl集成主题资源 -->
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border CornerRadius="8" Margin="5" Padding="10,0,10,10" Background="{StaticResource SecondaryRegionBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Style="{StaticResource IconText}" Text="&#xeb98;" Margin="0,0,5,0" FontSize="16"/>
+                    <TextBlock Text="{loc:Lang Block_TodayStatistic}" Style="{StaticResource TextBlockDefaultBold}" FontSize="14"></TextBlock>
+                </StackPanel>
+            </Border>
+            <!-- 生产趋势折线图  -->
+            <lvc:CartesianChart Grid.Row="1"
+                                LegendPosition="Hidden"
+                                Background="Transparent">
+
+                <lvc:CartesianChart.Series>
+                    <lvc:SeriesCollection>
+                        <lvc:XamlColumnSeries SeriesName="产量" Values="{Binding OkValues}"/>
+                        <lvc:XamlColumnSeries SeriesName="缺陷品" Values="{Binding NgValues}"/>
+                    </lvc:SeriesCollection>
+                </lvc:CartesianChart.Series>
+
+                <!-- We use force to min step to show all the labels always. -->
+
+                <lvc:CartesianChart.XAxes>
+                    <lvc:AxesCollection>
+                        <lvc:XamlAxis
+                    Labels="{Binding Labels}"
+                    LabelsPaint="#e9e9e9"
+                    LabelsRotation="0"
+                            TextSize="12"
+                    SeparatorsAtCenter="True"
+                    TicksPaint="#f0f0f0"
+                    TicksAtCenter="True"
+                    MinStep="1"
+                    ForceStepToMin="True"/>
+                    </lvc:AxesCollection>
+                </lvc:CartesianChart.XAxes>
+
+                <lvc:CartesianChart.YAxes>
+                    <lvc:AxesCollection>
+                        <lvc:XamlAxis
+                            LabelsPaint="#e9e9e9"
+                            TextSize="12"
+                            ZeroPaint="#e9e9e9"
+                            SeparatorsPaint="#3F5284"
+                        />
+                    </lvc:AxesCollection>
+                </lvc:CartesianChart.YAxes>
+
+            </lvc:CartesianChart>
+        </Grid>
+    </Border>
+</UserControl>

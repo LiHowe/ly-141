@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Module.Business.SG141.Controls.GaugePlot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Module.Business.SG141.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <Grid>
+        <Canvas>
+            <!-- 背景弧线 -->
+            <Path x:Name="backgroundArc" StrokeThickness="10" StrokeStartLineCap="Round" StrokeEndLineCap="Round" />
+
+            <!-- 彩色段落弧线 -->
+            <Path x:Name="redArc" StrokeThickness="30" StrokeStartLineCap="Round" StrokeEndLineCap="Round" />
+            <Path x:Name="yellowArc" StrokeThickness="30" StrokeStartLineCap="Round" StrokeEndLineCap="Round" />
+            <Path x:Name="greenArc" StrokeThickness="30" StrokeStartLineCap="Round" StrokeEndLineCap="Round" />
+
+            <!-- 指针 -->
+            <Path x:Name="needle" StrokeThickness="4" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                <Path.RenderTransform>
+                    <RotateTransform x:Name="needleRotate" />
+                </Path.RenderTransform>
+            </Path>
+
+            <!-- 中心圆点 -->
+            <Ellipse x:Name="center" Width="10" Height="10" />
+
+            <!-- 标签 -->
+            <TextBlock x:Name="labelText" Text="当前值" FontSize="12" HorizontalAlignment="Center" 
+                   Foreground="{DynamicResource PrimaryBrush}" />
+
+            <!-- 值文本 -->
+            <TextBlock x:Name="valueText" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" 
+                   Foreground="{DynamicResource PrimaryBrush}" />
+
+            <!-- 刻度画布 -->
+            <Canvas x:Name="gaugeCanvas" />
+        </Canvas>
+    </Grid>
+</UserControl>

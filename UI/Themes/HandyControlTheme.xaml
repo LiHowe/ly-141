@@ -7,11 +7,11 @@
 
     <!-- 引用HandyControl默认主题 -->
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/skindefault.xaml" />
-        <!-- <ResourceDictionary Source="WinmColors.xaml"/> -->
+        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/skindark.xaml" />
         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
         <!-- 引用颜色定义 -->
-        <ResourceDictionary Source="Colors.xaml" />
+        <!--<ResourceDictionary Source="Colors.xaml" />-->
+        <ResourceDictionary Source="WinmColors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- ========================================

@@ -8,6 +8,7 @@
                               xmlns:hc="https://handyorg.github.io/handycontrol"
                               xmlns:controls="clr-namespace:UI.Controls;assembly=UI"
                               d:DataContext="{d:DesignInstance vm:SystemSettingsViewModel}"
+                              Background="Transparent"
                               mc:Ignorable="d"
                               d:DesignHeight="800" d:DesignWidth="700">
     <controls:BaseSettingsControl.Resources>
@@ -15,7 +16,7 @@
     </controls:BaseSettingsControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="10">
-            <GroupBox Header="启动设置" Margin="0,0,0,15">
+            <GroupBox Header="启动设置" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}">
                 <StackPanel Margin="10">
                     <!-- 开机自动启动 -->
                     <CheckBox Content="开机自动启动"
@@ -38,7 +39,7 @@
                 </StackPanel>
             </GroupBox>
             <!-- 日志设置 -->
-            <GroupBox Header="日志设置" Margin="0,0,0,15">
+            <GroupBox Header="日志设置" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}">
                 <StackPanel Margin="10">
                     <!-- 日志级别 -->
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
@@ -57,7 +58,7 @@
             </GroupBox>
 
             <!-- 日志设置 -->
-            <GroupBox Header="磁盘监控设置" Margin="0,0,0,15"
+            <GroupBox Header="磁盘监控设置" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}"
                       Visibility="{Binding IsUseDiskWatcher, Converter={StaticResource BoolToVisibilityConverter}}">
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
@@ -75,7 +76,7 @@
             </GroupBox>
 
             <!-- 管理员设置 -->
-            <GroupBox Header="开发设置" Margin="0,0,0,15"
+            <GroupBox Header="开发设置" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}"
                       Visibility="{Binding IsShowDevPanel, Converter={StaticResource BoolToVisibilityConverter}}">
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">

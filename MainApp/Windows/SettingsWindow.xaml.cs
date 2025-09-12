@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Core;
 using Core.Interfaces;
+using Core.Services;
 using Core.Utils;
 using MainApp.ViewModels;
 using MainApp.Views.Settings;
@@ -25,7 +26,7 @@ public partial class SettingsWindow : Window
     private string _currentCategory = "System";
     private ISettingsControl? _currentSettingsControl;
 
-    public SettingsWindow()
+	public SettingsWindow()
     {
         InitializeComponent();
         // 启用窗口拖动
@@ -35,10 +36,12 @@ public partial class SettingsWindow : Window
 
         // 订阅配置变更事件
         _configManager.ConfigChanged += OnConfigChanged;
+		InitializeModuleSettings();
 
-        // 默认显示通用设置
-        ShowSettingsCategory(_currentCategory);
-    }
+		// 默认显示通用设置
+		ShowSettingsCategory(_currentCategory);
+
+	}
 
     /// <summary>
     ///     配置变更事件处理
@@ -61,10 +64,63 @@ public partial class SettingsWindow : Window
         });
     }
 
-    /// <summary>
-    ///     设置分类按钮点击事件
-    /// </summary>
-    private void SettingsCategory_Click(object sender, RoutedEventArgs e)
+	/// <summary>
+	/// 初始化模块设置
+	/// </summary>
+	private void InitializeModuleSettings()
+	{
+        ModuleManager manager = ServiceLocator.GetService<ModuleManager>();
+        if (manager == null) return;
+        if (manager.Modules.Count == 0) return;
+
+		//ModuleSettingsTitle.Visibility = Visibility.Collapsed;
+		ModuleSettingsPanel.Children.Clear();
+
+		//ModuleSettingsTitle.Visibility = Visibility.Visible;
+
+		foreach (var moduleItem in manager.Modules)
+		{
+            
+			var button = new Button
+			{
+				Content = moduleItem.ModuleName,
+				Height = 35,
+				Margin = new Thickness(0, 0, 0, 5),
+				Tag = moduleItem.ModuleId,
+				HorizontalAlignment = HorizontalAlignment.Stretch
+			};
+
+			button.Click += (s, e) =>
+			{
+				if (s is Button btn && btn.Tag is string moduleId)
+				{
+					ShowModuleSettings(moduleItem);
+				}
+			};
+
+			ModuleSettingsPanel.Children.Add(button);
+		}
+	}
+
+	/// <summary>
+	/// 显示模块设置
+	/// </summary>
+	private void ShowModuleSettings(IModule module)
+	{
+		if (module.HasSettingsPage)
+		{
+			SettingsContentControl.Content = module.GetSettingsPage();
+		}
+		else
+		{
+			ShowErrorMessage("无法加载模块设置页面");
+		}
+	}
+
+	/// <summary>
+	///     设置分类按钮点击事件
+	/// </summary>
+	private void SettingsCategory_Click(object sender, RoutedEventArgs e)
     {
         if (sender is Button button && button.Tag is string category)
         {

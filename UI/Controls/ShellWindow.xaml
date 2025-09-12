@@ -11,13 +11,13 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen"
         Width="1000" Height="700">
-    <Border Background="{StaticResource BackgroundCardBrush}"
+    <Border Background="{StaticResource BackgroundBrush}"
             BorderBrush="{StaticResource BorderBrush}"
             BorderThickness="1"
             CornerRadius="8"
             Margin="10">
         <Border.Effect>
-            <DropShadowEffect Color="{StaticResource ShadowColor}"
+            <DropShadowEffect Color="{StaticResource DarkOpacityColor}"
                               BlurRadius="15"
                               ShadowDepth="5"
                               Opacity="0.3" />
@@ -31,7 +31,7 @@
             <!-- 标题栏 -->
             <Border Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0"
                     x:Name="TitleBar"
-                    Background="{StaticResource TitleBarBrush}"
+                    Background="{StaticResource SecondaryRegionBrush}"
                     CornerRadius="8,8,0,0"
                     Padding="10,5">
                 <Grid>
@@ -46,7 +46,7 @@
                                Grid.Column="0"
                                Text="&#xe657;"
                                FontFamily="{StaticResource Icon}"
-                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                FontSize="16"
                                VerticalAlignment="Center"
                                Margin="0,0,10,0" />
@@ -55,7 +55,7 @@
                     <TextBlock x:Name="TitleTextBlock"
                                Grid.Column="1"
                                Text="系统设置"
-                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center" />
 
@@ -66,7 +66,7 @@
                             Style="{StaticResource CloseButtonStyle}"
                             hc:BackgroundSwitchElement.MouseHoverBackground="Red"
                             Width="30" Height="30"
-                            Foreground="{StaticResource TextOnPrimaryBrush}"
+                            Foreground="{StaticResource PrimaryTextBrush}"
                             Click="CloseButton_Click" />
                 </Grid>
             </Border>

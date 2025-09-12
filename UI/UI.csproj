@@ -72,9 +72,6 @@
             <XamlRuntime>Wpf</XamlRuntime>
             <SubType>Designer</SubType>
         </Page>
-        <Page Update="Themes\Colors.xaml">
-            <Generator>MSBuild:Compile</Generator>
-        </Page>
         <Page Update="Themes\Generic.xaml">
             <Generator>MSBuild:Compile</Generator>
         </Page>

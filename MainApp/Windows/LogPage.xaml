@@ -7,6 +7,7 @@
              xmlns:models1="clr-namespace:Core.Models;assembly=Core"
              xmlns:viewModels="clr-namespace:MainApp.ViewModels"
              mc:Ignorable="d"
+             Background="Transparent"
              d:DataContext="{d:DesignInstance viewModels:LogPageViewModel}"
              d:DesignHeight="600" d:DesignWidth="1000">
 
@@ -26,7 +27,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -42,7 +43,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- 标题栏 -->
-        <Border Grid.Row="0" Grid.ColumnSpan="3" Background="#F8F9FA" BorderBrush="#DEE2E6" BorderThickness="0,0,0,1"
+        <Border Grid.Row="0" Grid.ColumnSpan="3" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1"
                 Padding="15,10">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -51,7 +52,7 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="系统日志" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
+                    <TextBlock Text="系统日志" Foreground="{StaticResource PrimaryTextBrush}" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
                     <TextBlock Text="{Binding LastUpdateTime, StringFormat='最后更新: {0}'}"
                                Margin="20,0,0,0" VerticalAlignment="Center" Foreground="#6C757D" />
                 </StackPanel>
@@ -78,15 +79,12 @@
             </Grid.RowDefinitions>
 
             <!-- 文件列表标题 -->
-            <Border Grid.Row="0" Background="#F8F9FA" BorderBrush="#DEE2E6" BorderThickness="0,0,0,1" Padding="10,8">
-                <TextBlock Text="日志文件" FontWeight="Bold" FontSize="14" />
+            <Border Grid.Row="0" Background="{StaticResource TitleBarBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,0,1" Padding="10,8">
+                <TextBlock Text="日志文件" FontWeight="Bold" Foreground="{StaticResource PrimaryTextBrush}" FontSize="14" />
             </Border>
 
             <ListBox Grid.Row="1" ItemsSource="{Binding LogFiles}" SelectedItem="{Binding SelectedLogFile}">
                 <ListBox.ItemTemplate>
-                    <!-- <DataTemplate> -->
-                    <!--     <TextBlock Text="{Binding FileName}"/> -->
-                    <!-- </DataTemplate> -->
                     <DataTemplate>
                         <Grid Margin="5">
                             <Grid.RowDefinitions>
@@ -105,41 +103,15 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
-            <!-- 文件列表 -->
-            <!-- <ListView Grid.Row="1" ItemsSource="{Binding LogFiles}" -->
-            <!--           SelectedItem="{Binding SelectedLogFile}" -->
-            <!--           BorderThickness="0" -->
-            <!--           ScrollViewer.HorizontalScrollBarVisibility="Disabled" -->
-            <!--           ScrollViewer.VerticalScrollBarVisibility="Auto"> -->
-            <!--     <ListView.ItemTemplate> -->
-            <!--         <DataTemplate> -->
-            <!--             <Grid Margin="5"> -->
-            <!--                 <Grid.RowDefinitions> -->
-            <!--                     <RowDefinition Height="Auto"/> -->
-            <!--                     <RowDefinition Height="Auto"/> -->
-            <!--                     <RowDefinition Height="Auto"/> -->
-            <!--                 </Grid.RowDefinitions> -->
-            <!-- -->
-            <!--                 <TextBlock Grid.Row="0" Text="{Binding FileName}" FontWeight="Bold" -->
-            <!--                           TextTrimming="CharacterEllipsis"/> -->
-            <!--                 <TextBlock Grid.Row="1" Text="{Binding FormattedFileSize}" -->
-            <!--                           FontSize="11" Foreground="#6C757D"/> -->
-            <!--                 <TextBlock Grid.Row="2" Text="{Binding FormattedLastModified}" -->
-            <!--                           FontSize="11" Foreground="#6C757D"/> -->
-            <!--             </Grid> -->
-            <!--         </DataTemplate> -->
-            <!--     </ListView.ItemTemplate> -->
-            <!-- </ListView> -->
         </Grid>
 
         <!-- 分隔线 -->
         <GridSplitter Grid.Row="1" Grid.RowSpan="4" Grid.Column="1"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                      Background="#DEE2E6" Width="1" />
+                      Background="{StaticResource BorderBrush}" Width="1" />
 
         <!-- 过滤条件栏 -->
-        <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="#DEE2E6" BorderThickness="0,0,0,1"
+        <Border Grid.Row="1" Grid.Column="2" 
                 Padding="15,10">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -152,7 +124,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="日志等级:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="0" Text="日志等级:" Foreground="{StaticResource PrimaryTextBrush}" VerticalAlignment="Center" Margin="0,0,10,0" />
                 <ComboBox Grid.Column="1" SelectedItem="{Binding SelectedLogLevel}" Margin="0,0,15,0">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -168,16 +140,16 @@
                     </ComboBox.Items>
                 </ComboBox>
 
-                <TextBlock Grid.Column="2" Text="搜索:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="2" Text="搜索:" Foreground="{StaticResource PrimaryTextBrush}" VerticalAlignment="Center" Margin="0,0,10,0" />
                 <TextBox Grid.Column="3" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                          Margin="0,0,15,0" VerticalAlignment="Center" />
 
                 <StackPanel Grid.Column="4" Orientation="Horizontal" Margin="0,0,15,0">
-                    <CheckBox Content="自动刷新" IsChecked="{Binding IsAutoRefreshEnabled}"
+                    <CheckBox Foreground="{StaticResource PrimaryTextBrush}" Content="自动刷新" IsChecked="{Binding IsAutoRefreshEnabled}"
                               VerticalAlignment="Center" Margin="0,0,10,0" />
-                    <TextBlock Text="间隔:" VerticalAlignment="Center" Margin="0,0,5,0" />
+                    <TextBlock Text="间隔:" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{StaticResource PrimaryTextBrush}"/>
                     <TextBox Text="{Binding AutoRefreshInterval}" Width="40" VerticalAlignment="Center" />
-                    <TextBlock Text="秒" VerticalAlignment="Center" Margin="5,0,0,0" />
+                    <TextBlock Text="秒" Foreground="{StaticResource PrimaryTextBrush}" VerticalAlignment="Center" Margin="5,0,0,0" />
                 </StackPanel>
 
                 <Button Grid.Column="6" Content="重置过滤" Width="70" Height="25"
@@ -244,17 +216,17 @@
             </ListView>
 
             <!-- 加载指示器 -->
-            <Border Background="#80FFFFFF"
+            <Border Background="{StaticResource DarkOpacityBrush}"
                     Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <ProgressBar IsIndeterminate="True" Width="200" Height="4" Margin="0,0,0,10" />
-                    <TextBlock Text="正在加载日志..." HorizontalAlignment="Center" />
+                    <TextBlock Text="正在加载日志..." Foreground="{StaticResource PrimaryTextBrush}" HorizontalAlignment="Center" />
                 </StackPanel>
             </Border>
         </Grid>
 
         <!-- 状态栏 -->
-        <Border Grid.Row="3" Grid.Column="2" Background="#F8F9FA" BorderBrush="#DEE2E6" BorderThickness="0,1,0,0"
+        <Border Grid.Row="3" Grid.Column="2" BorderBrush="#DEE2E6" BorderThickness="0,1,0,0"
                 Padding="15,8">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -262,21 +234,21 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="{Binding StatusText}" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="0" Text="{Binding StatusText}" Foreground="{StaticResource PrimaryTextBrush}" VerticalAlignment="Center" />
                 <TextBlock Grid.Column="1" Text="{Binding LogStatistics}" VerticalAlignment="Center"
-                           FontWeight="Bold" Foreground="#495057" />
+                           FontWeight="Bold" Foreground="{StaticResource PrimaryTextBrush}" />
             </Grid>
         </Border>
 
         <!-- 详细信息面板 -->
-        <Border Grid.Row="4" Grid.Column="2" Background="White" BorderBrush="#DEE2E6" BorderThickness="0,1,0,0">
+        <Border Grid.Row="4" Grid.Column="2" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0">
             <Grid Margin="15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Text="详细信息" FontWeight="Bold" Margin="0,0,0,10" />
+                <TextBlock Grid.Row="0" Text="详细信息" Foreground="{StaticResource PrimaryTextBrush}" FontWeight="Bold" Margin="0,0,0,10" />
 
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <StackPanel DataContext="{Binding SelectedLogEntry}">
@@ -303,25 +275,26 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="时间:" FontWeight="Bold" Margin="0,0,10,5" />
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding FormattedTimestamp}"
+                            <TextBlock Grid.Row="0" Grid.Column="0" Foreground="{StaticResource PrimaryTextBrush}" Text="时间:" FontWeight="Bold" Margin="0,0,10,5" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{StaticResource PrimaryTextBrush}" Text="{Binding FormattedTimestamp}"
                                        Margin="0,0,0,5" />
 
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="等级:" FontWeight="Bold" Margin="0,0,10,5" />
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding LevelText}" Margin="0,0,0,5" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Foreground="{StaticResource PrimaryTextBrush}" Text="等级:" FontWeight="Bold" Margin="0,0,10,5" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{StaticResource PrimaryTextBrush}" Text="{Binding LevelText}" Margin="0,0,0,5" />
 
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="线程:" FontWeight="Bold" Margin="0,0,10,5" />
-                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Source}" Margin="0,0,0,5" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" Foreground="{StaticResource PrimaryTextBrush}" Text="线程:" FontWeight="Bold" Margin="0,0,10,5" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{StaticResource PrimaryTextBrush}" Text="{Binding Source}" Margin="0,0,0,5" />
 
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="消息:" FontWeight="Bold" Margin="0,0,10,5" />
-                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Message}" TextWrapping="Wrap"
+                            <TextBlock Grid.Row="3" Grid.Column="0" Foreground="{StaticResource PrimaryTextBrush}" Text="消息:" FontWeight="Bold" Margin="0,0,10,5" />
+                            <TextBlock Grid.Row="3" Grid.Column="1" Foreground="{StaticResource PrimaryTextBrush}" Text="{Binding Message}" TextWrapping="Wrap"
                                        Margin="0,0,0,5" />
 
-                            <TextBlock Grid.Row="4" Grid.Column="0" Text="异常:" FontWeight="Bold" Margin="0,0,10,5"
+                            <TextBlock Grid.Row="4" Grid.Column="0" Foreground="{StaticResource PrimaryTextBrush}" Text="异常:" FontWeight="Bold" Margin="0,0,10,5"
                                        Visibility="{Binding HasException, Converter={StaticResource BooleanToVisibilityConverter}}" />
                             <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Exception, Mode=OneWay}"
+                                      Foreground="{StaticResource PrimaryTextBrush}"
                                      IsReadOnly="True" TextWrapping="Wrap" FontFamily="Consolas"
-                                     Background="#F8F9FA" BorderThickness="1" Padding="5"
+                                     BorderThickness="1" Padding="5"
                                      Visibility="{Binding HasException, Converter={StaticResource BooleanToVisibilityConverter}}" />
                         </Grid>
                     </StackPanel>

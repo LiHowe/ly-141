@@ -3,4 +3,4 @@
   <Value Key="SortFileContentOnSave">True</Value>
   <Value Key="AutoCreateNewLanguageFiles">True</Value>
   <Value Key="ConfirmAddLanguageFile">True</Value>
-</Values>
+<Value Key="NeutralResourcesLanguage">zh-Hans</Value></Values>

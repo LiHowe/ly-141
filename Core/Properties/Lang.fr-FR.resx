@@ -98,15 +98,96 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>A propos</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Appliquer</value>
+  </data>
+  <data name="Block_DailyPassRate" xml:space="preserve">
+    <value>Taux de réussite quotidien</value>
+  </data>
+  <data name="Block_DeviceList" xml:space="preserve">
+    <value>Liste des appareils</value>
+  </data>
+  <data name="Block_FalutStatus" xml:space="preserve">
+    <value>Conditions de panne récentes</value>
+  </data>
+  <data name="Block_ProductionStatus" xml:space="preserve">
+    <value>Statut de production</value>
+  </data>
+  <data name="Block_TodayPlanOverview" xml:space="preserve">
+    <value>Aperçu du plan du jour</value>
+  </data>
+  <data name="Block_TodayStatistic" xml:space="preserve">
+    <value>Statistiques de production d'aujourd'hui</value>
+  </data>
+  <data name="Block_TodayTrend" xml:space="preserve">
+    <value>Tendances de production aujourd'hui</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>fermeture</value>
+  </data>
+  <data name="DatabaseSettings" xml:space="preserve">
+    <value>Base de données</value>
+  </data>
+  <data name="DeviceStatus_Fault" xml:space="preserve">
+    <value>Défaillance</value>
+  </data>
+  <data name="DeviceStatus_Running" xml:space="preserve">
+    <value>En fonctionnement</value>
+  </data>
+  <data name="DeviceStatus_Standby" xml:space="preserve">
+    <value>Veille</value>
+  </data>
+  <data name="DeviceStatus_Unknown" xml:space="preserve">
+    <value>Inconnu</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="HistoryMenu" xml:space="preserve">
+    <value>Recherche historique</value>
+  </data>
+  <data name="HistorySettings" xml:space="preserve">
+    <value>d'histoire</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="Menu_OpenConfigFolder" xml:space="preserve">
+    <value>Dossier de configuration</value>
+  </data>
+  <data name="Menu_OpenLogFolder" xml:space="preserve">
+    <value>Dossier journal</value>
+  </data>
+  <data name="MinimizeWindow" xml:space="preserve">
+    <value>Minimiser</value>
   </data>
   <data name="MonitorMenu" xml:space="preserve">
     <value>Moniteur</value>
   </data>
+  <data name="PlcSettings" xml:space="preserve">
+    <value>Paramètres API</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>rafraîchir</value>
+  </data>
   <data name="Reset" xml:space="preserve">
-    <value>Reset</value>
+    <value>Réinitialiser</value>
+  </data>
+  <data name="RestoreWindow" xml:space="preserve">
+    <value>Maximiser / restaurer</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search</value>
+    <value>Recherche</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="SystemSettings" xml:space="preserve">
+    <value>système</value>
+  </data>
+  <data name="Tip_UnSavedChanges" xml:space="preserve">
+    <value>Changements non sauvés</value>
   </data>
 </root>

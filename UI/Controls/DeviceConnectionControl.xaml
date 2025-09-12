@@ -15,9 +15,9 @@
                     <hc:InvokeCommandAction Command="{Binding HandleClickCommand}" />
                 </hc:EventTrigger>
             </hc:Interaction.Triggers>
-            <TextBlock Text="{Binding Icon}" Margin="5,0" Foreground="{Binding StatusBrush}"
+            <TextBlock Text="{Binding Icon}" Margin="5,0" Foreground="{Binding StatusBrush}" 
                        FontFamily="{StaticResource Icon}" FontSize="24" VerticalAlignment="Center" />
-            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Foreground="{Binding StatusBrush}" />
         </StackPanel>
     </Grid>
 </UserControl>

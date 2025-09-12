@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
+             Background="Transparent"
              d:DesignHeight="400" d:DesignWidth="600">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -13,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border Background="White" CornerRadius="16" Padding="12">
+    <Border Background="{StaticResource RegionBrush}" CornerRadius="0,0,8,8" Padding="12">
         <Border.Effect>
             <DropShadowEffect Color="#000000" Opacity="0.1" ShadowDepth="10" BlurRadius="15" />
         </Border.Effect>
@@ -37,7 +38,7 @@
             </StackPanel>
 
             <!-- DataGrid -->
-            <DataGrid Grid.Row="1" ItemsSource="{Binding Nodes}" AutoGenerateColumns="False" Margin="0,0,0,12"
+            <DataGrid Grid.Row="1" ItemsSource="{Binding Nodes}" AutoGenerateColumns="False" Margin="0,0,0,8"
                       x:Name="NodesDataGrid" SelectedItem="{Binding SelectedNode}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="标题" Binding="{Binding Title}" Width="100" />
@@ -53,8 +54,8 @@
             </DataGrid>
 
             <!-- 状态栏 -->
-            <Border Grid.Row="2" Background="#F9FAFB" CornerRadius="8" Padding="8">
-                <TextBlock Text="{Binding NodeCount, StringFormat=节点数量: {0}}" Foreground="#6B7280" />
+            <Border Grid.Row="2" Background="{StaticResource SecondaryBorderBrush}" CornerRadius="4" Padding="8">
+                <TextBlock Text="{Binding NodeCount, StringFormat=节点数量: {0}}" Foreground="{StaticResource PrimaryTextBrush}" />
             </Border>
         </Grid>
     </Border>

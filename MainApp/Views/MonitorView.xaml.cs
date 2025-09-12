@@ -14,7 +14,7 @@ public partial class MonitorView : UserControl
         InitializeComponent();
     }
 
-    public DynamicTablePanel Container => TablePanel;
+    // public DynamicTablePanel Container => TablePanel;
 
     /// <summary>
     ///     添加元素
@@ -26,6 +26,6 @@ public partial class MonitorView : UserControl
     /// <param name="rowspan"></param>
     public void AddControl(UIElement control, int column, int row, int colspan = 1, int rowspan = 1)
     {
-        TablePanel.AddControl(control, column, row, colspan, rowspan);
+        // TablePanel.AddControl(control, column, row, colspan, rowspan);
     }
 }

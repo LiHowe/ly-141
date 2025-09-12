@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net9.0-windows</TargetFramework>
+        <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
@@ -16,7 +16,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Core\Core.csproj" />
-        <ProjectReference Include="..\Module.Business.M3\Module.Business.141.csproj" />
+        <ProjectReference Include="..\Module.Business.M3\Module.Business.SG141.csproj" />
         <ProjectReference Include="..\UI\UI.csproj" />
     </ItemGroup>
 
@@ -34,6 +34,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Resource Remove="config\plc.conf" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Page Update="Views\Settings\PlcSettingsControl.xaml">
             <Generator>MSBuild:Compile</Generator>
             <XamlRuntime>Wpf</XamlRuntime>
@@ -43,6 +47,12 @@
 
     <ItemGroup>
       <Folder Include="Properties\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="config\plc.conf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

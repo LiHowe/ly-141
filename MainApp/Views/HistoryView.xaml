@@ -189,7 +189,7 @@
                                                         <DataTrigger Binding="{Binding IsSelected}" Value="True">
                                                             <Setter Property="Background"
                             Value="{DynamicResource PrimaryBrush}" />
-                                                            <Setter Property="Foreground" Value="{DynamicResource TextOnPrimaryBrush}"/>
+                                                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>

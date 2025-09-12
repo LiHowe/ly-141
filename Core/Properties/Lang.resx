@@ -121,14 +121,95 @@
     <value>关于</value>
     <comment>关于</comment>
   </data>
+  <data name="Apply" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="Block_DailyPassRate" xml:space="preserve">
+    <value>日合格率</value>
+  </data>
+  <data name="Block_DeviceList" xml:space="preserve">
+    <value>设备列表</value>
+  </data>
+  <data name="Block_FalutStatus" xml:space="preserve">
+    <value>近期故障情况</value>
+  </data>
+  <data name="Block_ProductionStatus" xml:space="preserve">
+    <value>生产状态</value>
+  </data>
+  <data name="Block_TodayPlanOverview" xml:space="preserve">
+    <value>今日计划总览</value>
+  </data>
+  <data name="Block_TodayStatistic" xml:space="preserve">
+    <value>今日生产统计</value>
+  </data>
+  <data name="Block_TodayTrend" xml:space="preserve">
+    <value>今日生产趋势</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="DatabaseSettings" xml:space="preserve">
+    <value>数据库设置</value>
+  </data>
+  <data name="DeviceStatus_Fault" xml:space="preserve">
+    <value>故障</value>
+  </data>
+  <data name="DeviceStatus_Running" xml:space="preserve">
+    <value>运行中</value>
+  </data>
+  <data name="DeviceStatus_Standby" xml:space="preserve">
+    <value>待机</value>
+  </data>
+  <data name="DeviceStatus_Unknown" xml:space="preserve">
+    <value>未知状态</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="HistoryMenu" xml:space="preserve">
+    <value>历史追溯</value>
+  </data>
+  <data name="HistorySettings" xml:space="preserve">
+    <value>历史设置</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Menu_OpenConfigFolder" xml:space="preserve">
+    <value>打开配置目录</value>
+  </data>
+  <data name="Menu_OpenLogFolder" xml:space="preserve">
+    <value>打开日志目录</value>
+  </data>
+  <data name="MinimizeWindow" xml:space="preserve">
+    <value>最小化</value>
+  </data>
   <data name="MonitorMenu" xml:space="preserve">
     <value>产线监测</value>
     <comment>产线监测</comment>
   </data>
+  <data name="PlcSettings" xml:space="preserve">
+    <value>PLC设置</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
   <data name="Reset" xml:space="preserve">
     <value>重置</value>
   </data>
+  <data name="RestoreWindow" xml:space="preserve">
+    <value>最大化/还原</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>搜索</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SystemSettings" xml:space="preserve">
+    <value>系统设置</value>
+  </data>
+  <data name="Tip_UnSavedChanges" xml:space="preserve">
+    <value>未保存的更改</value>
   </data>
 </root>

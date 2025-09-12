@@ -22,13 +22,13 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Border Background="{StaticResource BackgroundCardBrush}"
+    <Border Background="{StaticResource RegionBrush}"
             BorderBrush="{StaticResource BorderBrush}"
             BorderThickness="1"
             CornerRadius="8"
             Margin="10">
         <Border.Effect>
-            <DropShadowEffect Color="{StaticResource ShadowColor}"
+            <DropShadowEffect Color="{StaticResource DarkOpacityColor}"
                               BlurRadius="15"
                               ShadowDepth="5"
                               Opacity="0.3" />
@@ -58,7 +58,7 @@
                     <TextBlock x:Name="IconTextBlock"
                                Grid.Column="0"
                                Text="ℹ️"
-                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                FontSize="16"
                                VerticalAlignment="Center"
                                Margin="0,0,10,0" />
@@ -67,7 +67,7 @@
                     <TextBlock x:Name="TitleTextBlock"
                                Grid.Column="1"
                                Text="消息提示"
-                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center" />
 
@@ -79,7 +79,7 @@
                             hc:BackgroundSwitchElement.MouseHoverBackground="Red"
                             Width="30" Height="30"
                             Visibility="Hidden"
-                            Foreground="{StaticResource TextOnPrimaryBrush}"
+                            Foreground="{StaticResource PrimaryTextBrush}"
                             Click="CloseButton_Click" />
                 </Grid>
             </Border>
@@ -92,12 +92,14 @@
                     <!-- 消息内容 -->
                     <TextBlock x:Name="MessageTextBlock"
                                TextWrapping="Wrap"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                Text="这是消息内容"
                                Margin="0,0,0,15" />
 
                     <!-- 详细信息（可选） -->
                     <Expander x:Name="DetailsExpander"
                               Header="详细信息"
+                              Foreground="{StaticResource PrimaryTextBrush}"
                               Visibility="Collapsed"
                               Margin="0,10,0,0">
                         <Label x:Name="DetailsTextBlock"
@@ -109,7 +111,6 @@
 
             <!-- 按钮区域 -->
             <Border Grid.Row="2"
-                    Background="{StaticResource SurfaceVariantBrush}"
                     CornerRadius="0,0,8,8"
                     Padding="10">
                 <StackPanel x:Name="ButtonPanel"

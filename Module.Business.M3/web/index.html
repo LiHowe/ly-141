@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>141辊压线监控系统</title>
+    <style>
+        /* 基础重置和全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* 容器系统 */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .container-fluid {
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        /* 栅格系统 */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        /* 栅格列宽 */
+        .col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+        .col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+        .col-3 { flex: 0 0 25%; max-width: 25%; }
+        .col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+        .col-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+        .col-6 { flex: 0 0 50%; max-width: 50%; }
+        .col-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+        .col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+        .col-9 { flex: 0 0 75%; max-width: 75%; }
+        .col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+        .col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+        .col-12 { flex: 0 0 100%; max-width: 100%; }
+
+        /* 响应式栅格 */
+        @media (max-width: 768px) {
+            .col-sm-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+            .col-sm-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+            .col-sm-3 { flex: 0 0 25%; max-width: 25%; }
+            .col-sm-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+            .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+            .col-sm-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+            .col-sm-12 { flex: 0 0 100%; max-width: 100%; }
+        }
+
+        @media (max-width: 576px) {
+            .col-xs-12 { flex: 0 0 100%; max-width: 100%; }
+        }
+
+        /* 卡片组件 */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-footer {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* 按钮组件 */
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 4px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: #343a40;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* 状态指示器 */
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-online { background: #28a745; }
+        .status-offline { background: #dc3545; }
+        .status-warning { background: #ffc107; }
+
+        /* 数据表格 */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        /* 工具提示 */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 动画效果 */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .row {
+                margin: 0 -10px;
+            }
+            
+            .col {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div x-data="monitoringApp()" class="fade-in">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar-brand">141辊压线监控系统</a>
+                <div class="navbar-nav" style="float: right;">
+                    <span class="status-indicator" :class="systemStatus === 'online' ? 'status-online' : 'status-offline'"></span>
+                    <span x-text="systemStatus === 'online' ? '系统在线' : '系统离线'"></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 主要内容区域 -->
+        <div class="container">
+            <!-- 状态概览卡片 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            系统状态概览
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-body" style="text-align: center;">
+                                            <h3 x-text="stats.totalMachines"></h3>
+                                            <p>总设备数</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-body" style="text-align: center;">
+                                            <h3 x-text="stats.runningMachines"></h3>
+                                            <p>运行中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-body" style="text-align: center;">
+                                            <h3 x-text="stats.maintenanceMachines"></h3>
+                                            <p>维护中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card">
+                                        <div class="card-body" style="text-align: center;">
+                                            <h3 x-text="stats.errorMachines"></h3>
+                                            <p>故障设备</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 控制面板 -->
+            <div class="row">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            设备监控面板
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>设备列表</h4>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>设备ID</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template x-for="machine in machines" :key="machine.id">
+                                                <tr>
+                                                    <td x-text="machine.id"></td>
+                                                    <td>
+                                                        <span class="status-indicator" :class="'status-' + machine.status"></span>
+                                                        <span x-text="machine.statusText"></span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-primary" @click="toggleMachine(machine.id)">
+                                                            <span x-text="machine.status === 'online' ? '停止' : '启动'"></span>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-6">
+                                    <h4>实时数据</h4>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <p>温度: <strong x-text="realTimeData.temperature + '°C'"></strong></p>
+                                            <p>压力: <strong x-text="realTimeData.pressure + ' MPa'"></strong></p>
+                                            <p>速度: <strong x-text="realTimeData.speed + ' rpm'"></strong></p>
+                                            <p>产量: <strong x-text="realTimeData.production + ' 件'"></strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            快速操作
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-success" @click="startAllMachines()" style="width: 100%; margin-bottom: 10px;">
+                                启动所有设备
+                            </button>
+                            <button class="btn btn-warning" @click="pauseAllMachines()" style="width: 100%; margin-bottom: 10px;">
+                                暂停所有设备
+                            </button>
+                            <button class="btn btn-danger" @click="stopAllMachines()" style="width: 100%; margin-bottom: 10px;">
+                                停止所有设备
+                            </button>
+                            <button class="btn btn-primary" @click="refreshData()" style="width: 100%;">
+                                刷新数据
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图表区域 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            生产趋势图表
+                        </div>
+                        <div class="card-body">
+                            <div id="chartContainer" style="height: 400px; width: 100%;">
+                                <!-- 这里将集成ECharts图表 -->
+                                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #666;">
+                                    图表加载中...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alpine.js 脚本 -->
+    <script src="scripts/alpinejs.js"></script>
+    <script src="scripts/echarts.min.js"></script>
+    <script>
+        function monitoringApp() {
+            return {
+                systemStatus: 'online',
+                stats: {
+                    totalMachines: 12,
+                    runningMachines: 8,
+                    maintenanceMachines: 2,
+                    errorMachines: 2
+                },
+                machines: [
+                    { id: 'M001', status: 'online', statusText: '运行中' },
+                    { id: 'M002', status: 'offline', statusText: '离线' },
+                    { id: 'M003', status: 'online', statusText: '运行中' },
+                    { id: 'M004', status: 'warning', statusText: '维护中' },
+                    { id: 'M005', status: 'online', statusText: '运行中' },
+                    { id: 'M006', status: 'offline', statusText: '离线' }
+                ],
+                realTimeData: {
+                    temperature: 45.2,
+                    pressure: 2.3,
+                    speed: 1200,
+                    production: 1250
+                },
+
+                init() {
+                    console.log('监控系统初始化完成');
+                    this.startRealTimeUpdates();
+                },
+
+                toggleMachine(machineId) {
+                    const machine = this.machines.find(m => m.id === machineId);
+                    if (machine) {
+                        if (machine.status === 'online') {
+                            machine.status = 'offline';
+                            machine.statusText = '离线';
+                        } else {
+                            machine.status = 'online';
+                            machine.statusText = '运行中';
+                        }
+                        this.updateStats();
+                    }
+                },
+
+                startAllMachines() {
+                    this.machines.forEach(machine => {
+                        machine.status = 'online';
+                        machine.statusText = '运行中';
+                    });
+                    this.updateStats();
+                },
+
+                pauseAllMachines() {
+                    this.machines.forEach(machine => {
+                        if (machine.status === 'online') {
+                            machine.status = 'warning';
+                            machine.statusText = '维护中';
+                        }
+                    });
+                    this.updateStats();
+                },
+
+                stopAllMachines() {
+                    this.machines.forEach(machine => {
+                        machine.status = 'offline';
+                        machine.statusText = '离线';
+                    });
+                    this.updateStats();
+                },
+
+                refreshData() {
+                    // 模拟数据刷新
+                    this.realTimeData.temperature = (Math.random() * 20 + 30).toFixed(1);
+                    this.realTimeData.pressure = (Math.random() * 2 + 1).toFixed(1);
+                    this.realTimeData.speed = Math.floor(Math.random() * 500 + 1000);
+                    this.realTimeData.production = Math.floor(Math.random() * 200 + 1000);
+                    
+                    console.log('数据已刷新');
+                },
+
+                updateStats() {
+                    this.stats.runningMachines = this.machines.filter(m => m.status === 'online').length;
+                    this.stats.maintenanceMachines = this.machines.filter(m => m.status === 'warning').length;
+                    this.stats.errorMachines = this.machines.filter(m => m.status === 'offline').length;
+                },
+
+                startRealTimeUpdates() {
+                    // 模拟实时数据更新
+                    setInterval(() => {
+                        this.refreshData();
+                    }, 5000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

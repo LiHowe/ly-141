@@ -9,6 +9,7 @@
                               xmlns:controlsvm="clr-namespace:UI.ViewModels;assembly=UI"
                               d:DataContext="{d:DesignInstance vm:PlcSettingsViewModel}"
                               mc:Ignorable="d"
+                              Background="Transparent"
                               d:DesignHeight="800" d:DesignWidth="700">
     <Grid Margin="10">
         <Grid.RowDefinitions>

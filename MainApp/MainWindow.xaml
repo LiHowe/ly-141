@@ -45,7 +45,7 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Border BorderBrush="#243b76" BorderThickness="1">
+    <Border BorderBrush="{StaticResource SecondaryBorderBrush}" BorderThickness="1">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -55,7 +55,7 @@
             </Grid.RowDefinitions>
 
             <!-- 头部区域 -->
-            <Border Grid.Row="0" Background="#243b76" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <Border Grid.Row="0" Background="{StaticResource SecondaryBorderBrush}" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -70,7 +70,7 @@
                         <Image Source="/Resources/Images/logo_white.png"
                                Width="24" Height="24" Margin="0,0, 10,0" />
                         <TextBlock Text="{Binding Title}"
-                                   Foreground="White"
+                                   Foreground="{StaticResource PrimaryTextBrush}"
                                    FontSize="18"
                                    FontWeight="Bold"
                                    VerticalAlignment="Center" />
@@ -88,15 +88,31 @@
                         <!-- 语言切换 -->
                         <Button Name="LangButton"
                                 Foreground="White"
-                                Content="&#xebe2;"
+                                Content="&#xe602;"
                                 FontFamily="{StaticResource Icon}"
                                 Style="{StaticResource ButtonDefault}"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 FontSize="16"
-                                ToolTip="设置"
-                                Command="{Binding SwitchLanguageCommand}"/>
-
+                                Click="LangButton_Click"
+                                ToolTip="{loc:Lang Language}"/>
+                        <Popup AllowsTransparency="True" PlacementTarget="{Binding ElementName=LangButton}" Placement="Center"  Name="PopupConfig" VerticalOffset="40" StaysOpen="False">
+                            <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
+                                <StackPanel Orientation="Horizontal">
+                                    <hc:UniformSpacingPanel Button.Click="ButtonLangs_OnClick" Margin="10" Spacing="10" ChildWrapping="Wrap">
+                                        <Button Tag="zh-CN" Style="{StaticResource ButtonCustom}" ToolTip="中文">
+                                            <TextBlock Style="{StaticResource IconText}" Text="&#xebe2;" FontSize="20"/>
+                                        </Button>
+                                        <Button Tag="en-US" Style="{StaticResource ButtonCustom}" ToolTip="English">
+                                            <TextBlock Style="{StaticResource IconText}" Text="&#xebe0;" FontSize="20"/>
+                                        </Button>
+                                        <Button Tag="fr-FR" Style="{StaticResource ButtonCustom}" ToolTip="Français">
+                                            <TextBlock Style="{StaticResource IconText}" Text="&#xe74a;" FontSize="20"/>
+                                        </Button>
+                                    </hc:UniformSpacingPanel>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
                         <!-- 设置按钮 -->
                         <Button Name="SettingsButton"
                                 Foreground="White"
@@ -106,7 +122,7 @@
                                 Background="Transparent"
                                 BorderThickness="0"
                                 FontSize="16"
-                                ToolTip="设置"
+                                ToolTip="{loc:Lang Settings}"
                                 Click="SettingsButton_Click" />
 
                         <!-- 关于按钮 -->
@@ -123,21 +139,21 @@
                                 Foreground="White"
                                 hc:IconElement.Geometry="{StaticResource WindowMinGeometry}"
                                 Style="{StaticResource ButtonIcon}"
-                                ToolTip="最小化"
+                                ToolTip="{loc:Lang MinimizeWindow}"
                                 Click="MinimizeButton_Click" />
 
                         <Button Name="MaximizeRestoreButton"
                                 Style="{StaticResource ButtonIcon}"
                                 Foreground="White"
                                 hc:IconElement.Geometry="{StaticResource WindowMaxGeometry}"
-                                ToolTip="最大化/还原"
+                                ToolTip="{loc:Lang RestoreWindow}"
                                 Click="MaximizeButton_Click" />
 
                         <Button Name="CloseButton"
                                 hc:IconElement.Geometry="{StaticResource CloseGeometry}"
                                 Style="{StaticResource CloseButtonStyle}"
                                 Foreground="White"
-                                ToolTip="关闭"
+                                ToolTip="{loc:Lang Close}"
                                 Click="CloseButton_Click" />
                     </StackPanel>
                 </Grid>
@@ -149,7 +165,7 @@
             </Border>
 
             <!-- 底部状态栏 -->
-            <Border Grid.Row="2" Background="{DynamicResource BorderBrush}">
+            <Border Grid.Row="2" Background="{DynamicResource SecondaryRegionBrush}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

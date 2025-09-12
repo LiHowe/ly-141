@@ -1,12 +1,14 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using Core.Events;
+﻿using Core.Events;
+using Core.Localization;
 using Core.Services;
 using HandyControl.Tools;
 using Logger;
 using MainApp.Menu;
 using MainApp.ViewModels;
 using MainApp.Windows;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using UI.Controls;
 using MessageBox = UI.Controls.MessageBox;
 
@@ -88,20 +90,29 @@ public partial class MainWindow : Window
         }
     }
 
-    private void LangButton_Click(object sender, RoutedEventArgs e)
+	private void LangButton_Click(object sender, RoutedEventArgs e) => PopupConfig.IsOpen = true;
+
+
+	private void ButtonLangs_OnClick(object sender, RoutedEventArgs e)
     {
-        ConfigHelper.Instance.SetLang("fr");
-        var current = Thread.CurrentThread.CurrentCulture.IetfLanguageTag;
-        if (current == "zh-CN")
+        if (e.OriginalSource is Button { Tag: string langName })
         {
-            ConfigHelper.Instance.SetLang("fr");
-            App.SwitchLanguage("fr-FR");
-        }
-        else
-        {
-            ConfigHelper.Instance.SetLang("zh");
-            App.SwitchLanguage("zh-CN");
-        }
+			PopupConfig.IsOpen = false;
+			ConfigHelper.Instance.SetLang(langName);
+			App.SwitchLanguage(langName);
+		}
+			
+        //var current = Thread.CurrentThread.CurrentCulture.IetfLanguageTag;
+        //if (current == "zh-CN")
+        //{
+        //    ConfigHelper.Instance.SetLang("fr");
+        //    App.SwitchLanguage("fr-FR");
+        //}
+        //else
+        //{
+        //    ConfigHelper.Instance.SetLang("zh");
+        //    App.SwitchLanguage("zh-CN");
+        //}
     }
 
 	/// <summary>
@@ -179,4 +190,5 @@ public partial class MainWindow : Window
         else
             DragMove();
     }
+
 }

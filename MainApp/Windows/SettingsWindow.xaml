@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         ResizeMode="NoResize"
@@ -12,13 +13,13 @@
         WindowStartupLocation="CenterScreen"
         Width="1000" Height="700"
         Title="SettingsWindow" d:DesignHeight="700" d:DesignWidth="1000">
-    <Border Background="{StaticResource BackgroundCardBrush}"
-            BorderBrush="{StaticResource BorderBrush}"
+    <Border Background="{StaticResource RegionBrush}"
+            BorderBrush="{StaticResource RegionBrush}"
             BorderThickness="1"
             CornerRadius="8"
             Margin="10">
         <Border.Effect>
-            <DropShadowEffect Color="{StaticResource ShadowColor}"
+            <DropShadowEffect Color="{StaticResource DarkOpacityColor}"
                               BlurRadius="15"
                               ShadowDepth="5"
                               Opacity="0.3" />
@@ -52,7 +53,7 @@
                                Grid.Column="0"
                                Text="&#xe657;"
                                FontFamily="{StaticResource Icon}"
-                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                FontSize="16"
                                VerticalAlignment="Center"
                                Margin="0,0,10,0" />
@@ -60,8 +61,8 @@
                     <!-- 标题 -->
                     <TextBlock x:Name="TitleTextBlock"
                                Grid.Column="1"
-                               Text="系统设置"
-                               Foreground="{StaticResource TextOnPrimaryBrush}"
+                               Text="{loc:Lang SystemSettings}"
+                               Foreground="{StaticResource PrimaryTextBrush}"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center" />
 
@@ -72,30 +73,35 @@
                             Style="{StaticResource CloseButtonStyle}"
                             hc:BackgroundSwitchElement.MouseHoverBackground="Red"
                             Width="30" Height="30"
-                            Foreground="{StaticResource TextOnPrimaryBrush}"
+                            Foreground="{StaticResource PrimaryTextBrush}"
                             Click="CloseButton_Click" />
                 </Grid>
             </Border>
 
 
             <!-- 左侧设置分类 -->
-            <Border Grid.Row="1" Grid.Column="0" Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="0,0,1,0">
+            <Border Grid.Row="1" Grid.Column="0" Background="{StaticResource RegionBrush}" BorderBrush="{StaticResource SecondaryRegionBrush}" BorderThickness="0,0,1,0">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel Margin="10">
                         <!-- 系统设置分类 -->
-                        <Button x:Name="SystemSettingsButton" Content="系统设置" Height="35" Margin="0,0,0,5"
+                        <Button x:Name="SystemSettingsButton" Content="{loc:Lang SystemSettings}" Height="35" Margin="0,0,0,5"
                                 Click="SettingsCategory_Click" Tag="System" HorizontalAlignment="Stretch" />
 
-                        <Button x:Name="DatabaseSettingsButton" Content="数据库设置" Height="35" Margin="0,0,0,5"
+                        <Button x:Name="DatabaseSettingsButton" Content="{loc:Lang DatabaseSettings}" Height="35" Margin="0,0,0,5"
                                 Click="SettingsCategory_Click" Tag="Database" HorizontalAlignment="Stretch" />
 
-                        <Button x:Name="PlcSettingsButton" Content="PLC设置" Height="35" Margin="0,0,0,5"
+                        <Button x:Name="PlcSettingsButton" Content="{loc:Lang PlcSettings}" Height="35" Margin="0,0,0,5"
                                 Click="SettingsCategory_Click" Tag="Plc" HorizontalAlignment="Stretch" />
 
-                        <Button x:Name="HistorySettingsButton" Content="历史查询设置" Height="35" Margin="0,0,0,5"
+                        <Button x:Name="HistorySettingsButton" Content="{loc:Lang HistorySettings}" Height="35" Margin="0,0,0,5"
                                 Click="SettingsCategory_Click" Tag="HistoryDetail" HorizontalAlignment="Stretch" />
+                        <!-- 模块设置分类 -->
+                        <!--<TextBlock x:Name="ModuleSettingsTitle" Text="模块设置" FontWeight="Bold" FontSize="14" 
+                              Margin="0,0,0,10" Foreground="#495057" Visibility="Collapsed"/>-->
 
+                        <StackPanel x:Name="ModuleSettingsPanel"/>
                     </StackPanel>
+                    
                 </ScrollViewer>
             </Border>
 
@@ -108,11 +114,11 @@
                 </Grid.RowDefinitions>
 
                 <!-- 标题栏 -->
-                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,0,0,0">
-                    <TextBlock x:Name="SettingsTitleTextBlock" Text="通用设置"
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,0,0,10">
+                    <TextBlock x:Name="SettingsTitleTextBlock" Text="{loc:Lang General}" Foreground="{StaticResource PrimaryTextBrush}"
                                FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
                     <Button x:Name="RefreshButton" Width="60" Height="30" Margin="15,0,0,0"
-                            ToolTip="刷新设置" Content="刷新" Click="RefreshButton_Click" />
+                             Content="{loc:Lang Refresh}" Click="RefreshButton_Click" />
 
                     <!-- 未保存更改指示器 -->
                     <Border x:Name="UnsavedChangesIndicator" Background="#FFF3CD" BorderBrush="#FFEAA7"
@@ -120,7 +126,7 @@
                             Visibility="Collapsed">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="●" Foreground="#856404" FontWeight="Bold" VerticalAlignment="Center" />
-                            <TextBlock Text="有未保存的更改" Foreground="#856404" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <TextBlock Text="{loc:Lang Tip_UnSavedChanges}" Foreground="#856404" Margin="5,0,0,0" VerticalAlignment="Center" />
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -139,24 +145,24 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xebdf;" FontFamily="{StaticResource Icon}" FontSize="16"
                                            VerticalAlignment="Center" Margin="0,0,5,0" />
-                                <TextBlock Text="打开配置目录" VerticalAlignment="Center" />
+                                <TextBlock Text="{loc:Lang Menu_OpenConfigFolder}" VerticalAlignment="Center" />
                             </StackPanel>
                         </Button>
                         <Button x:Name="LogButton" Click="LogButton_Click" Height="35" Margin="10,0,0,0">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xeb6a;" FontFamily="{StaticResource Icon}" FontSize="16"
                                            VerticalAlignment="Center" Margin="0,0,5,0" />
-                                <TextBlock Text="查看日志" VerticalAlignment="Center" />
+                                <TextBlock Text="{loc:Lang Menu_OpenLogFolder}" VerticalAlignment="Center" />
                             </StackPanel>
                         </Button>
                     </StackPanel>
                     <!-- 底部按钮 -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button x:Name="SaveButton" Content="保存" Width="80" Height="35" Margin="0,0,10,0"
+                        <Button x:Name="SaveButton" Content="{loc:Lang Save}" Width="80" Height="35" Margin="0,0,10,0"
                                 Click="SaveButton_Click" Style="{DynamicResource ButtonPrimary}" />
-                        <Button x:Name="ApplyButton" Content="应用" Width="80" Height="35" Margin="0,0,10,0"
+                        <Button x:Name="ApplyButton" Content="{loc:Lang Apply}" Width="80" Height="35" Margin="0,0,10,0"
                                 Click="ApplyButton_Click" />
-                        <Button x:Name="ResetButton" Content="重置" Width="80" Height="35"
+                        <Button x:Name="ResetButton" Content="{loc:Lang Reset}" Width="80" Height="35"
                                 Click="ResetButton_Click" />
                     </StackPanel>
                 </Grid>

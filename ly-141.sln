@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{43CC02E1-8EF6-4950-8BEC-0ACC4FAEB6A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Business.141", "Module.Business.M3\Module.Business.141.csproj", "{252A2E68-F4BF-4E4F-AE0C-6B591A4C29B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.Business.SG141", "Module.Business.M3\Module.Business.SG141.csproj", "{252A2E68-F4BF-4E4F-AE0C-6B591A4C29B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
