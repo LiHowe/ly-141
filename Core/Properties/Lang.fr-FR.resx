@@ -106,6 +106,9 @@
   <data name="Apply" xml:space="preserve">
     <value>Appliquer</value>
   </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Informations de base</value>
+  </data>
   <data name="Bitlength" xml:space="preserve">
     <value>longueur</value>
   </data>
@@ -133,8 +136,20 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
+  <data name="CharEncode" xml:space="preserve">
+    <value>Codage de caractère</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>fermeture</value>
+  </data>
+  <data name="CommandTimeout" xml:space="preserve">
+    <value>Délai d'expiration du commandement</value>
+  </data>
+  <data name="ConnectionSettings" xml:space="preserve">
+    <value>Paramètres de connexion</value>
+  </data>
+  <data name="ConnectionTimeout" xml:space="preserve">
+    <value>Délai de connexion</value>
   </data>
   <data name="CreateTime" xml:space="preserve">
     <value>Date de création</value>
@@ -142,11 +157,38 @@
   <data name="Custom" xml:space="preserve">
     <value>Personnaliser</value>
   </data>
+  <data name="Database" xml:space="preserve">
+    <value>base de données</value>
+  </data>
   <data name="DatabaseSettings" xml:space="preserve">
     <value>Base de données</value>
   </data>
+  <data name="DataColumn" xml:space="preserve">
+    <value>Sélection de colonne de données</value>
+  </data>
   <data name="DataDetail" xml:space="preserve">
     <value>Détails des données</value>
+  </data>
+  <data name="DB_Address" xml:space="preserve">
+    <value>adresse</value>
+  </data>
+  <data name="DB_ConnectionString" xml:space="preserve">
+    <value>Chaîne de connexion</value>
+  </data>
+  <data name="DB_InstanceName" xml:space="preserve">
+    <value>Instance de base de données</value>
+  </data>
+  <data name="DB_MySqlConfig" xml:space="preserve">
+    <value>Ma configuration SQL</value>
+  </data>
+  <data name="DB_SqlServerConfig" xml:space="preserve">
+    <value>Configuration du serveur SQL</value>
+  </data>
+  <data name="DB_Type" xml:space="preserve">
+    <value>taper</value>
+  </data>
+  <data name="DefaultFullscreen" xml:space="preserve">
+    <value>Plein écran par défaut</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>supprimer</value>
@@ -175,11 +217,20 @@
   <data name="DeviceType" xml:space="preserve">
     <value>Type d'appareil</value>
   </data>
+  <data name="DiskAlarmThreshold" xml:space="preserve">
+    <value>Seuil d'alarme de disque (%)</value>
+  </data>
+  <data name="DiskMonitorConfig" xml:space="preserve">
+    <value>Paramètres de surveillance du disque</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>modifier</value>
   </data>
   <data name="Enable" xml:space="preserve">
     <value>Activer</value>
+  </data>
+  <data name="EnableDiskMonitor" xml:space="preserve">
+    <value>Activer la surveillance du disque</value>
   </data>
   <data name="EndTime" xml:space="preserve">
     <value>Heure de fin</value>
@@ -202,11 +253,29 @@
   <data name="FeedbackNode" xml:space="preserve">
     <value>Nœud de rétroaction</value>
   </data>
+  <data name="FileExt" xml:space="preserve">
+    <value>Nom d'extension de fichier</value>
+  </data>
+  <data name="FileNameColumn" xml:space="preserve">
+    <value>Colonne de nom de fichier</value>
+  </data>
   <data name="FirstHalf" xml:space="preserve">
     <value>Premier semestre</value>
   </data>
+  <data name="FixedFileName" xml:space="preserve">
+    <value>Correction du nom du fichier</value>
+  </data>
+  <data name="FolderPath" xml:space="preserve">
+    <value>Chemin du dossier</value>
+  </data>
   <data name="General" xml:space="preserve">
     <value>Général</value>
+  </data>
+  <data name="GroupColumn" xml:space="preserve">
+    <value>Colonnes groupées</value>
+  </data>
+  <data name="HideTaskbarOnFull" xml:space="preserve">
+    <value>Masquer la barre des tâches en plein écran</value>
   </data>
   <data name="HistoryData" xml:space="preserve">
     <value>Données historiques</value>
@@ -232,6 +301,15 @@
   <data name="Loading" xml:space="preserve">
     <value>Chargement</value>
   </data>
+  <data name="LogConfig" xml:space="preserve">
+    <value>Configuration du journal</value>
+  </data>
+  <data name="LogLevel" xml:space="preserve">
+    <value>Niveau de journal</value>
+  </data>
+  <data name="MaxLogFiles" xml:space="preserve">
+    <value>Nombre maximum de fichiers journaux</value>
+  </data>
   <data name="Menu_OpenConfigFolder" xml:space="preserve">
     <value>Dossier de configuration</value>
   </data>
@@ -241,8 +319,14 @@
   <data name="MinimizeWindow" xml:space="preserve">
     <value>Minimiser</value>
   </data>
+  <data name="MiniTray" xml:space="preserve">
+    <value>Minimiser dans le plateau système</value>
+  </data>
   <data name="Model" xml:space="preserve">
     <value>Modèle</value>
+  </data>
+  <data name="ModelClass" xml:space="preserve">
+    <value>Classe de modèle</value>
   </data>
   <data name="MonitorMenu" xml:space="preserve">
     <value>Moniteur</value>
@@ -262,11 +346,20 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="OpsType" xml:space="preserve">
+    <value>Type d'opération</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Mot de passe</value>
   </data>
+  <data name="PicConfig" xml:space="preserve">
+    <value>Configuration d'image</value>
+  </data>
   <data name="PlcSettings" xml:space="preserve">
     <value>Paramètres API</value>
+  </data>
+  <data name="PlotConfig" xml:space="preserve">
+    <value>Configuration du graphique</value>
   </data>
   <data name="Quality" xml:space="preserve">
     <value>Qualité</value>
@@ -307,17 +400,44 @@
   <data name="Settings" xml:space="preserve">
     <value>Paramètres</value>
   </data>
+  <data name="shColConfig" xml:space="preserve">
+    <value>Afficher / masquer la configuration de la colonne</value>
+  </data>
+  <data name="ShowCol" xml:space="preserve">
+    <value>Afficher les colonnes</value>
+  </data>
+  <data name="ShowPic" xml:space="preserve">
+    <value>Montrer des photos</value>
+  </data>
+  <data name="ShowPlot" xml:space="preserve">
+    <value>Spectacles</value>
+  </data>
   <data name="Slot" xml:space="preserve">
     <value>Slot</value>
   </data>
+  <data name="SortField" xml:space="preserve">
+    <value>Trier les champs</value>
+  </data>
+  <data name="SortType" xml:space="preserve">
+    <value>Trier par</value>
+  </data>
+  <data name="StartOnBoot" xml:space="preserve">
+    <value>Startup automatique</value>
+  </data>
   <data name="StartTime" xml:space="preserve">
     <value>Heure de début</value>
+  </data>
+  <data name="StartupConfig" xml:space="preserve">
+    <value>Démarrer les paramètres</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>succès</value>
   </data>
   <data name="SystemSettings" xml:space="preserve">
     <value>système</value>
+  </data>
+  <data name="TargetDisk" xml:space="preserve">
+    <value>Disque cible</value>
   </data>
   <data name="Test" xml:space="preserve">
     <value>Test</value>
@@ -370,6 +490,12 @@
   <data name="UpdateTime" xml:space="preserve">
     <value>Date de modification</value>
   </data>
+  <data name="UseIntegratedSecurity" xml:space="preserve">
+    <value>S'il faut utiliser la sécurité intégrée</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>nom d'utilisateur</value>
+  </data>
   <data name="Validate" xml:space="preserve">
     <value>Vérifier</value>
   </data>
@@ -381,6 +507,12 @@
   </data>
   <data name="Workstation" xml:space="preserve">
     <value>Poste de travail</value>
+  </data>
+  <data name="XAxisLabel" xml:space="preserve">
+    <value>Étiquette de l'axe x</value>
+  </data>
+  <data name="YAxisLabel" xml:space="preserve">
+    <value>Étiquette de l'axe y</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Oui</value>
