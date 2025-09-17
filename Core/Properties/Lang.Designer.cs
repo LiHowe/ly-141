@@ -70,11 +70,38 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 添加 的本地化字符串。
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 应用 的本地化字符串。
         /// </summary>
         public static string Apply {
             get {
                 return ResourceManager.GetString("Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 基本信息 的本地化字符串。
+        /// </summary>
+        public static string BasicInfo {
+            get {
+                return ResourceManager.GetString("BasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 位长度 的本地化字符串。
+        /// </summary>
+        public static string Bitlength {
+            get {
+                return ResourceManager.GetString("Bitlength", resourceCulture);
             }
         }
         
@@ -142,6 +169,24 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 取消 的本地化字符串。
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 字符编码 的本地化字符串。
+        /// </summary>
+        public static string CharEncode {
+            get {
+                return ResourceManager.GetString("CharEncode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 关闭 的本地化字符串。
         /// </summary>
         public static string Close {
@@ -151,11 +196,173 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 命令超时 的本地化字符串。
+        /// </summary>
+        public static string CommandTimeout {
+            get {
+                return ResourceManager.GetString("CommandTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 连接设置 的本地化字符串。
+        /// </summary>
+        public static string ConnectionSettings {
+            get {
+                return ResourceManager.GetString("ConnectionSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 连接超时 的本地化字符串。
+        /// </summary>
+        public static string ConnectionTimeout {
+            get {
+                return ResourceManager.GetString("ConnectionTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 创建时间 的本地化字符串。
+        /// </summary>
+        public static string CreateTime {
+            get {
+                return ResourceManager.GetString("CreateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 自定义 的本地化字符串。
+        /// </summary>
+        public static string Custom {
+            get {
+                return ResourceManager.GetString("Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据库 的本地化字符串。
+        /// </summary>
+        public static string Database {
+            get {
+                return ResourceManager.GetString("Database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 数据库设置 的本地化字符串。
         /// </summary>
         public static string DatabaseSettings {
             get {
                 return ResourceManager.GetString("DatabaseSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据列选择 的本地化字符串。
+        /// </summary>
+        public static string DataColumn {
+            get {
+                return ResourceManager.GetString("DataColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据详情 的本地化字符串。
+        /// </summary>
+        public static string DataDetail {
+            get {
+                return ResourceManager.GetString("DataDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 地址 的本地化字符串。
+        /// </summary>
+        public static string DB_Address {
+            get {
+                return ResourceManager.GetString("DB_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 连接字符串 的本地化字符串。
+        /// </summary>
+        public static string DB_ConnectionString {
+            get {
+                return ResourceManager.GetString("DB_ConnectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 数据库实例 的本地化字符串。
+        /// </summary>
+        public static string DB_InstanceName {
+            get {
+                return ResourceManager.GetString("DB_InstanceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 My SQL配置 的本地化字符串。
+        /// </summary>
+        public static string DB_MySqlConfig {
+            get {
+                return ResourceManager.GetString("DB_MySqlConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SQL Server配置 的本地化字符串。
+        /// </summary>
+        public static string DB_SqlServerConfig {
+            get {
+                return ResourceManager.GetString("DB_SqlServerConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 类型 的本地化字符串。
+        /// </summary>
+        public static string DB_Type {
+            get {
+                return ResourceManager.GetString("DB_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 默认全屏 的本地化字符串。
+        /// </summary>
+        public static string DefaultFullscreen {
+            get {
+                return ResourceManager.GetString("DefaultFullscreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 删除 的本地化字符串。
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 描述 的本地化字符串。
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 详情 的本地化字符串。
+        /// </summary>
+        public static string Detail {
+            get {
+                return ResourceManager.GetString("Detail", resourceCulture);
             }
         }
         
@@ -196,11 +403,209 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 设备标识 的本地化字符串。
+        /// </summary>
+        public static string DeviceTag {
+            get {
+                return ResourceManager.GetString("DeviceTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 设备类型 的本地化字符串。
+        /// </summary>
+        public static string DeviceType {
+            get {
+                return ResourceManager.GetString("DeviceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 磁盘报警阈值(%) 的本地化字符串。
+        /// </summary>
+        public static string DiskAlarmThreshold {
+            get {
+                return ResourceManager.GetString("DiskAlarmThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 磁盘监控设置 的本地化字符串。
+        /// </summary>
+        public static string DiskMonitorConfig {
+            get {
+                return ResourceManager.GetString("DiskMonitorConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 编辑 的本地化字符串。
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用 的本地化字符串。
+        /// </summary>
+        public static string Enable {
+            get {
+                return ResourceManager.GetString("Enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启用磁盘监控 的本地化字符串。
+        /// </summary>
+        public static string EnableDiskMonitor {
+            get {
+                return ResourceManager.GetString("EnableDiskMonitor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 结束时间 的本地化字符串。
+        /// </summary>
+        public static string EndTime {
+            get {
+                return ResourceManager.GetString("EndTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 错误 的本地化字符串。
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Excel导出 的本地化字符串。
+        /// </summary>
+        public static string ExcelExport {
+            get {
+                return ResourceManager.GetString("ExcelExport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Excel导入 的本地化字符串。
+        /// </summary>
+        public static string ExcelImport {
+            get {
+                return ResourceManager.GetString("ExcelImport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 导出 的本地化字符串。
+        /// </summary>
+        public static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 反馈 的本地化字符串。
+        /// </summary>
+        public static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 反馈节点 的本地化字符串。
+        /// </summary>
+        public static string FeedbackNode {
+            get {
+                return ResourceManager.GetString("FeedbackNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文件拓展名 的本地化字符串。
+        /// </summary>
+        public static string FileExt {
+            get {
+                return ResourceManager.GetString("FileExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文件名列 的本地化字符串。
+        /// </summary>
+        public static string FileNameColumn {
+            get {
+                return ResourceManager.GetString("FileNameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上半年 的本地化字符串。
+        /// </summary>
+        public static string FirstHalf {
+            get {
+                return ResourceManager.GetString("FirstHalf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 固定文件名 的本地化字符串。
+        /// </summary>
+        public static string FixedFileName {
+            get {
+                return ResourceManager.GetString("FixedFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文件夹路径 的本地化字符串。
+        /// </summary>
+        public static string FolderPath {
+            get {
+                return ResourceManager.GetString("FolderPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 通用 的本地化字符串。
         /// </summary>
         public static string General {
             get {
                 return ResourceManager.GetString("General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 分组列 的本地化字符串。
+        /// </summary>
+        public static string GroupColumn {
+            get {
+                return ResourceManager.GetString("GroupColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 全屏隐藏任务栏 的本地化字符串。
+        /// </summary>
+        public static string HideTaskbarOnFull {
+            get {
+                return ResourceManager.GetString("HideTaskbarOnFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 历史数据 的本地化字符串。
+        /// </summary>
+        public static string HistoryData {
+            get {
+                return ResourceManager.GetString("HistoryData", resourceCulture);
             }
         }
         
@@ -223,11 +628,74 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 消息 的本地化字符串。
+        /// </summary>
+        public static string Info {
+            get {
+                return ResourceManager.GetString("Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 输入 的本地化字符串。
+        /// </summary>
+        public static string Input {
+            get {
+                return ResourceManager.GetString("Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 语言 的本地化字符串。
         /// </summary>
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 近7天 的本地化字符串。
+        /// </summary>
+        public static string Last7Days {
+            get {
+                return ResourceManager.GetString("Last7Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加载中 的本地化字符串。
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 日志配置 的本地化字符串。
+        /// </summary>
+        public static string LogConfig {
+            get {
+                return ResourceManager.GetString("LogConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 日志级别 的本地化字符串。
+        /// </summary>
+        public static string LogLevel {
+            get {
+                return ResourceManager.GetString("LogLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 最大日志文件数 的本地化字符串。
+        /// </summary>
+        public static string MaxLogFiles {
+            get {
+                return ResourceManager.GetString("MaxLogFiles", resourceCulture);
             }
         }
         
@@ -259,6 +727,33 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 最小化到系统托盘 的本地化字符串。
+        /// </summary>
+        public static string MiniTray {
+            get {
+                return ResourceManager.GetString("MiniTray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 型号 的本地化字符串。
+        /// </summary>
+        public static string Model {
+            get {
+                return ResourceManager.GetString("Model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 模型类 的本地化字符串。
+        /// </summary>
+        public static string ModelClass {
+            get {
+                return ResourceManager.GetString("ModelClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 产线监测 的本地化字符串。
         /// </summary>
         public static string MonitorMenu {
@@ -268,11 +763,128 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 名称 的本地化字符串。
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 否 的本地化字符串。
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 节点 的本地化字符串。
+        /// </summary>
+        public static string Node {
+            get {
+                return ResourceManager.GetString("Node", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 偏移量 的本地化字符串。
+        /// </summary>
+        public static string Offset {
+            get {
+                return ResourceManager.GetString("Offset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确定 的本地化字符串。
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 操作类型 的本地化字符串。
+        /// </summary>
+        public static string OpsType {
+            get {
+                return ResourceManager.GetString("OpsType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码 的本地化字符串。
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 图片配置 的本地化字符串。
+        /// </summary>
+        public static string PicConfig {
+            get {
+                return ResourceManager.GetString("PicConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 PLC设置 的本地化字符串。
         /// </summary>
         public static string PlcSettings {
             get {
                 return ResourceManager.GetString("PlcSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 图表配置 的本地化字符串。
+        /// </summary>
+        public static string PlotConfig {
+            get {
+                return ResourceManager.GetString("PlotConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 质量 的本地化字符串。
+        /// </summary>
+        public static string Quality {
+            get {
+                return ResourceManager.GetString("Quality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 询问 的本地化字符串。
+        /// </summary>
+        public static string Question {
+            get {
+                return ResourceManager.GetString("Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 快速选择 的本地化字符串。
+        /// </summary>
+        public static string QuickSelect {
+            get {
+                return ResourceManager.GetString("QuickSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 机架 的本地化字符串。
+        /// </summary>
+        public static string Rack {
+            get {
+                return ResourceManager.GetString("Rack", resourceCulture);
             }
         }
         
@@ -304,11 +916,47 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 重试 的本地化字符串。
+        /// </summary>
+        public static string Retry {
+            get {
+                return ResourceManager.GetString("Retry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 保存 的本地化字符串。
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 搜索 的本地化字符串。
         /// </summary>
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下半年 的本地化字符串。
+        /// </summary>
+        public static string SecondHalf {
+            get {
+                return ResourceManager.GetString("SecondHalf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 设置DB 的本地化字符串。
+        /// </summary>
+        public static string SetDB {
+            get {
+                return ResourceManager.GetString("SetDB", resourceCulture);
             }
         }
         
@@ -322,6 +970,105 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 显示/隐藏列配置 的本地化字符串。
+        /// </summary>
+        public static string shColConfig {
+            get {
+                return ResourceManager.GetString("shColConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 显示列 的本地化字符串。
+        /// </summary>
+        public static string ShowCol {
+            get {
+                return ResourceManager.GetString("ShowCol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 显示图片 的本地化字符串。
+        /// </summary>
+        public static string ShowPic {
+            get {
+                return ResourceManager.GetString("ShowPic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 显示图表 的本地化字符串。
+        /// </summary>
+        public static string ShowPlot {
+            get {
+                return ResourceManager.GetString("ShowPlot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 插槽 的本地化字符串。
+        /// </summary>
+        public static string Slot {
+            get {
+                return ResourceManager.GetString("Slot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 排序字段 的本地化字符串。
+        /// </summary>
+        public static string SortField {
+            get {
+                return ResourceManager.GetString("SortField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 排序方式 的本地化字符串。
+        /// </summary>
+        public static string SortType {
+            get {
+                return ResourceManager.GetString("SortType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开机自动启动 的本地化字符串。
+        /// </summary>
+        public static string StartOnBoot {
+            get {
+                return ResourceManager.GetString("StartOnBoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开始时间 的本地化字符串。
+        /// </summary>
+        public static string StartTime {
+            get {
+                return ResourceManager.GetString("StartTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 启动设置 的本地化字符串。
+        /// </summary>
+        public static string StartupConfig {
+            get {
+                return ResourceManager.GetString("StartupConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 成功 的本地化字符串。
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 系统设置 的本地化字符串。
         /// </summary>
         public static string SystemSettings {
@@ -331,11 +1078,245 @@ namespace Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 目标磁盘 的本地化字符串。
+        /// </summary>
+        public static string TargetDisk {
+            get {
+                return ResourceManager.GetString("TargetDisk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 测试 的本地化字符串。
+        /// </summary>
+        public static string Test {
+            get {
+                return ResourceManager.GetString("Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 本月 的本地化字符串。
+        /// </summary>
+        public static string ThisMonth {
+            get {
+                return ResourceManager.GetString("ThisMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 本季度 的本地化字符串。
+        /// </summary>
+        public static string ThisQuarter {
+            get {
+                return ResourceManager.GetString("ThisQuarter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 本周 的本地化字符串。
+        /// </summary>
+        public static string ThisWeek {
+            get {
+                return ResourceManager.GetString("ThisWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 今年 的本地化字符串。
+        /// </summary>
+        public static string ThisYear {
+            get {
+                return ResourceManager.GetString("ThisYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 提示 的本地化字符串。
+        /// </summary>
+        public static string Tip {
+            get {
+                return ResourceManager.GetString("Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 确定要关闭应用程序吗？ 的本地化字符串。
+        /// </summary>
+        public static string Tip_CloseApp {
+            get {
+                return ResourceManager.GetString("Tip_CloseApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 输入密码 的本地化字符串。
+        /// </summary>
+        public static string Tip_EnterPassword {
+            get {
+                return ResourceManager.GetString("Tip_EnterPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 密码错误 的本地化字符串。
+        /// </summary>
+        public static string Tip_IncorrectPassword {
+            get {
+                return ResourceManager.GetString("Tip_IncorrectPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入内容 的本地化字符串。
+        /// </summary>
+        public static string Tip_InputContent {
+            get {
+                return ResourceManager.GetString("Tip_InputContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 暂无数据 的本地化字符串。
+        /// </summary>
+        public static string Tip_NoData {
+            get {
+                return ResourceManager.GetString("Tip_NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 未保存的更改 的本地化字符串。
         /// </summary>
         public static string Tip_UnSavedChanges {
             get {
                 return ResourceManager.GetString("Tip_UnSavedChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 标题 的本地化字符串。
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 今天 的本地化字符串。
+        /// </summary>
+        public static string Today {
+            get {
+                return ResourceManager.GetString("Today", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 趋势图表 的本地化字符串。
+        /// </summary>
+        public static string TrendPlot {
+            get {
+                return ResourceManager.GetString("TrendPlot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 类型 的本地化字符串。
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 更新时间 的本地化字符串。
+        /// </summary>
+        public static string UpdateTime {
+            get {
+                return ResourceManager.GetString("UpdateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 是否使用集成安全 的本地化字符串。
+        /// </summary>
+        public static string UseIntegratedSecurity {
+            get {
+                return ResourceManager.GetString("UseIntegratedSecurity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名 的本地化字符串。
+        /// </summary>
+        public static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 校验 的本地化字符串。
+        /// </summary>
+        public static string Validate {
+            get {
+                return ResourceManager.GetString("Validate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 零件码 的本地化字符串。
+        /// </summary>
+        public static string Vin {
+            get {
+                return ResourceManager.GetString("Vin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 警告 的本地化字符串。
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 工作站 的本地化字符串。
+        /// </summary>
+        public static string Workstation {
+            get {
+                return ResourceManager.GetString("Workstation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 X轴标签 的本地化字符串。
+        /// </summary>
+        public static string XAxisLabel {
+            get {
+                return ResourceManager.GetString("XAxisLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Y轴标签 的本地化字符串。
+        /// </summary>
+        public static string YAxisLabel {
+            get {
+                return ResourceManager.GetString("YAxisLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 是 的本地化字符串。
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

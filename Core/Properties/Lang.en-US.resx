@@ -120,8 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Basic Info</value>
+  </data>
+  <data name="Bitlength" xml:space="preserve">
+    <value>bit length</value>
   </data>
   <data name="Block_DailyPassRate" xml:space="preserve">
     <value>Daily pass rate</value>
@@ -144,11 +153,71 @@
   <data name="Block_TodayTrend" xml:space="preserve">
     <value>Production trends today</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CharEncode" xml:space="preserve">
+    <value>CharEncoding</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="CommandTimeout" xml:space="preserve">
+    <value>CommandTimeout</value>
+  </data>
+  <data name="ConnectionSettings" xml:space="preserve">
+    <value>Connection Config</value>
+  </data>
+  <data name="ConnectionTimeout" xml:space="preserve">
+    <value>ConnectionTimeout</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>Creation Time</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
   <data name="DatabaseSettings" xml:space="preserve">
     <value>Database</value>
+  </data>
+  <data name="DataColumn" xml:space="preserve">
+    <value>DataColumn</value>
+  </data>
+  <data name="DataDetail" xml:space="preserve">
+    <value>Data Details</value>
+  </data>
+  <data name="DB_Address" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="DB_ConnectionString" xml:space="preserve">
+    <value>ConnectionString</value>
+  </data>
+  <data name="DB_InstanceName" xml:space="preserve">
+    <value>Instance</value>
+  </data>
+  <data name="DB_MySqlConfig" xml:space="preserve">
+    <value>My SQL Config</value>
+  </data>
+  <data name="DB_SqlServerConfig" xml:space="preserve">
+    <value>SQL Server Config</value>
+  </data>
+  <data name="DB_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="DefaultFullscreen" xml:space="preserve">
+    <value>Default open with fullscreen</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>describe</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Details</value>
   </data>
   <data name="DeviceStatus_Fault" xml:space="preserve">
     <value>Fault</value>
@@ -162,8 +231,74 @@
   <data name="DeviceStatus_Unknown" xml:space="preserve">
     <value>Unknown</value>
   </data>
+  <data name="DeviceTag" xml:space="preserve">
+    <value>DeviceKey</value>
+  </data>
+  <data name="DeviceType" xml:space="preserve">
+    <value>DeviceType</value>
+  </data>
+  <data name="DiskAlarmThreshold" xml:space="preserve">
+    <value>Disk alarm threshold</value>
+  </data>
+  <data name="DiskMonitorConfig" xml:space="preserve">
+    <value>Disk monitor config</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>edit</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="EnableDiskMonitor" xml:space="preserve">
+    <value>Enable disk monitor</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>End time</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>mistake</value>
+  </data>
+  <data name="ExcelExport" xml:space="preserve">
+    <value>Export Excel</value>
+  </data>
+  <data name="ExcelImport" xml:space="preserve">
+    <value>Import Excel</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>feedback</value>
+  </data>
+  <data name="FeedbackNode" xml:space="preserve">
+    <value>Feedback Node</value>
+  </data>
+  <data name="FileExt" xml:space="preserve">
+    <value>File Ext</value>
+  </data>
+  <data name="FileNameColumn" xml:space="preserve">
+    <value>FileNameColumn</value>
+  </data>
+  <data name="FirstHalf" xml:space="preserve">
+    <value>First half of the year</value>
+  </data>
+  <data name="FixedFileName" xml:space="preserve">
+    <value>FixedFileName</value>
+  </data>
+  <data name="FolderPath" xml:space="preserve">
+    <value>Folder Path</value>
+  </data>
   <data name="General" xml:space="preserve">
     <value>General</value>
+  </data>
+  <data name="GroupColumn" xml:space="preserve">
+    <value>Group Column</value>
+  </data>
+  <data name="HideTaskbarOnFull" xml:space="preserve">
+    <value>Hide taskbar on fullscreen mode</value>
+  </data>
+  <data name="HistoryData" xml:space="preserve">
+    <value>Historical data</value>
   </data>
   <data name="HistoryMenu" xml:space="preserve">
     <value>History traceback</value>
@@ -171,8 +306,29 @@
   <data name="HistorySettings" xml:space="preserve">
     <value>History</value>
   </data>
+  <data name="Info" xml:space="preserve">
+    <value>information</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>Input</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Languages</value>
+  </data>
+  <data name="Last7Days" xml:space="preserve">
+    <value>Last 7 days</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="LogConfig" xml:space="preserve">
+    <value>Log config</value>
+  </data>
+  <data name="LogLevel" xml:space="preserve">
+    <value>Log level</value>
+  </data>
+  <data name="MaxLogFiles" xml:space="preserve">
+    <value>Max log files</value>
   </data>
   <data name="Menu_OpenConfigFolder" xml:space="preserve">
     <value>Configuration Folder</value>
@@ -183,11 +339,59 @@
   <data name="MinimizeWindow" xml:space="preserve">
     <value>Minimize</value>
   </data>
+  <data name="MiniTray" xml:space="preserve">
+    <value>Minimize To Tray</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="ModelClass" xml:space="preserve">
+    <value>Class</value>
+  </data>
   <data name="MonitorMenu" xml:space="preserve">
-    <value>Production line monitoring</value>
+    <value>Monitoring</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Offset</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OpsType" xml:space="preserve">
+    <value>Operation Type</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>password</value>
+  </data>
+  <data name="PicConfig" xml:space="preserve">
+    <value>Pic Config</value>
   </data>
   <data name="PlcSettings" xml:space="preserve">
     <value>PLC settings</value>
+  </data>
+  <data name="PlotConfig" xml:space="preserve">
+    <value>Plot Config</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>ask</value>
+  </data>
+  <data name="QuickSelect" xml:space="preserve">
+    <value>Quick selection</value>
+  </data>
+  <data name="Rack" xml:space="preserve">
+    <value>Rack</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
@@ -198,16 +402,139 @@
   <data name="RestoreWindow" xml:space="preserve">
     <value>Maximize/restore</value>
   </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="SecondHalf" xml:space="preserve">
+    <value>Second half of the year</value>
+  </data>
+  <data name="SetDB" xml:space="preserve">
+    <value>Set DB</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Config</value>
   </data>
+  <data name="shColConfig" xml:space="preserve">
+    <value>Show/Hide Column</value>
+  </data>
+  <data name="ShowCol" xml:space="preserve">
+    <value>Show Column</value>
+  </data>
+  <data name="ShowPic" xml:space="preserve">
+    <value>Show Picture</value>
+  </data>
+  <data name="ShowPlot" xml:space="preserve">
+    <value>Show Plot</value>
+  </data>
+  <data name="Slot" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="SortField" xml:space="preserve">
+    <value>SortField</value>
+  </data>
+  <data name="SortType" xml:space="preserve">
+    <value>Sort Type</value>
+  </data>
+  <data name="StartOnBoot" xml:space="preserve">
+    <value>Start OnBoot</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="StartupConfig" xml:space="preserve">
+    <value>Bootstrap Config</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>success</value>
+  </data>
   <data name="SystemSettings" xml:space="preserve">
     <value>System</value>
   </data>
+  <data name="TargetDisk" xml:space="preserve">
+    <value>Target Disk</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="ThisMonth" xml:space="preserve">
+    <value>this month</value>
+  </data>
+  <data name="ThisQuarter" xml:space="preserve">
+    <value>This quarter</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>This week</value>
+  </data>
+  <data name="ThisYear" xml:space="preserve">
+    <value>This year</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Tip_CloseApp" xml:space="preserve">
+    <value>Are you sure you want to close the application?</value>
+  </data>
+  <data name="Tip_EnterPassword" xml:space="preserve">
+    <value>Enter Password</value>
+  </data>
+  <data name="Tip_IncorrectPassword" xml:space="preserve">
+    <value>Incorrect Password</value>
+  </data>
+  <data name="Tip_InputContent" xml:space="preserve">
+    <value>Please enter text</value>
+  </data>
+  <data name="Tip_NoData" xml:space="preserve">
+    <value>No Data</value>
+  </data>
   <data name="Tip_UnSavedChanges" xml:space="preserve">
     <value>Unsaved changes</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>title</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="TrendPlot" xml:space="preserve">
+    <value>Trend Chart</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UpdateTime" xml:space="preserve">
+    <value>Modification Time</value>
+  </data>
+  <data name="UseIntegratedSecurity" xml:space="preserve">
+    <value>UseIntegratedSecurity</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Validate" xml:space="preserve">
+    <value>Validate</value>
+  </data>
+  <data name="Vin" xml:space="preserve">
+    <value>Part Number</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>warn</value>
+  </data>
+  <data name="Workstation" xml:space="preserve">
+    <value>WorkStation</value>
+  </data>
+  <data name="XAxisLabel" xml:space="preserve">
+    <value>XAxisLabel</value>
+  </data>
+  <data name="YAxisLabel" xml:space="preserve">
+    <value>YAxisLabel</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

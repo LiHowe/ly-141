@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
              xmlns:viewModels="clr-namespace:UI.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:S7PlcViewModel}"
              mc:Ignorable="d"
@@ -73,7 +74,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="设备标识" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Grid.Column="0" Text="{loc:Lang DeviceTag}" Foreground="{StaticResource PrimaryTextBrush}" />
                     <TextBlock Grid.Column="1" Text="{Binding DeviceId}" d:Text="S7" Foreground="{StaticResource PrimaryTextBrush}" FontFamily="Consolas" />
                 </Grid>
 
@@ -83,7 +84,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="设备类型" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Grid.Column="0" Text="{loc:Lang DeviceType}" Foreground="{StaticResource PrimaryTextBrush}" />
                     <TextBlock Grid.Column="1" Text="{Binding DeviceTypeName}" Foreground="{StaticResource PrimaryTextBrush}" d:Text="S7-1500" FontFamily="Consolas" />
                 </Grid>
 
@@ -93,7 +94,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="IP 地址" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Grid.Column="0" Text="IP" Foreground="{StaticResource PrimaryTextBrush}" />
                     <TextBlock Grid.Column="1" Text="{Binding IpAddress}" d:Text="192.168.31.100" Foreground="{StaticResource PrimaryTextBrush}" FontFamily="Consolas" />
                 </Grid>
 
@@ -103,7 +104,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="机架号" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Grid.Column="0" Text="{loc:Lang Rack}" Foreground="{StaticResource PrimaryTextBrush}" />
                     <TextBlock Grid.Column="1" Text="{Binding RackNumber}" d:Text="0" Foreground="{StaticResource PrimaryTextBrush}" FontFamily="Consolas" />
                 </Grid>
 
@@ -113,7 +114,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="插槽号" Foreground="{StaticResource PrimaryTextBrush}" />
+                    <TextBlock Grid.Column="0" Text="{loc:Lang Slot}" Foreground="{StaticResource PrimaryTextBrush}" />
                     <TextBlock Grid.Column="1" Text="{Binding SlotNumber}" d:Text="1" Foreground="{StaticResource PrimaryTextBrush}" FontFamily="Consolas" />
                 </Grid>
             </StackPanel>
@@ -146,13 +147,13 @@
 
                         <!-- Action Buttons -->
                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                            <Button Content="测试连接"
+                            <Button 
                                     Command="{Binding TestConnectionCommand}"
                                     Foreground="White"
                                     Padding="8,4"
                                     Margin="0,0,5,0"
                                     BorderThickness="0"
-                                    ToolTip="测试连接"
+                                    ToolTip="{loc:Lang Test}"
                                     Width="30"
                                     Style="{StaticResource ButtonPrimary}">
                                 <Button.ContentTemplate>
@@ -170,7 +171,7 @@
                                     Foreground="{StaticResource PrimaryBrush}"
                                     FontFamily="{StaticResource Icon}"
                                     Width="30"
-                                    ToolTip="编辑"
+                                    ToolTip="{loc:Lang Edit}"
                                     Margin="0,0,5,0"
                                     Padding="8,4" />
 
@@ -179,7 +180,7 @@
                                     Command="{Binding RemoveDeviceCommand}"
                                     Foreground="{StaticResource DangerBrush}"
                                     Width="30"
-                                    ToolTip="删除"
+                                    ToolTip="{loc:Lang Delete}"
                                     Padding="8,4" />
                         </StackPanel>
                     </Grid>
@@ -202,7 +203,7 @@
                                 <TextBlock Style="{StaticResource IconText}"
                                            Text="&#xe600;"
                                            Margin="0,0,8,0" />
-                                <TextBlock Text="节点"
+                                <TextBlock Text="{loc:Lang Node}"
                                            Foreground="{StaticResource PrimaryTextBrush}"
                                            VerticalAlignment="Center" />
                             </StackPanel>
@@ -219,7 +220,7 @@
                                     Style="{StaticResource ButtonIcon.Small}"
                                     Command="{Binding EditNodesCommand}"
                                     Foreground="{StaticResource PrimaryTextBrush}"
-                                    ToolTip="编辑节点"
+                                    ToolTip="{loc:Lang Edit}"
                                     VerticalAlignment="Center" />
                             </StackPanel>
                         </Grid>

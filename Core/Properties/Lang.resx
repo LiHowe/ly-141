@@ -121,8 +121,17 @@
     <value>关于</value>
     <comment>关于</comment>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="Bitlength" xml:space="preserve">
+    <value>位长度</value>
   </data>
   <data name="Block_DailyPassRate" xml:space="preserve">
     <value>日合格率</value>
@@ -145,11 +154,71 @@
   <data name="Block_TodayTrend" xml:space="preserve">
     <value>今日生产趋势</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CharEncode" xml:space="preserve">
+    <value>字符编码</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>关闭</value>
   </data>
+  <data name="CommandTimeout" xml:space="preserve">
+    <value>命令超时</value>
+  </data>
+  <data name="ConnectionSettings" xml:space="preserve">
+    <value>连接设置</value>
+  </data>
+  <data name="ConnectionTimeout" xml:space="preserve">
+    <value>连接超时</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>数据库</value>
+  </data>
   <data name="DatabaseSettings" xml:space="preserve">
     <value>数据库设置</value>
+  </data>
+  <data name="DataColumn" xml:space="preserve">
+    <value>数据列选择</value>
+  </data>
+  <data name="DataDetail" xml:space="preserve">
+    <value>数据详情</value>
+  </data>
+  <data name="DB_Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="DB_ConnectionString" xml:space="preserve">
+    <value>连接字符串</value>
+  </data>
+  <data name="DB_InstanceName" xml:space="preserve">
+    <value>数据库实例</value>
+  </data>
+  <data name="DB_MySqlConfig" xml:space="preserve">
+    <value>My SQL配置</value>
+  </data>
+  <data name="DB_SqlServerConfig" xml:space="preserve">
+    <value>SQL Server配置</value>
+  </data>
+  <data name="DB_Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="DefaultFullscreen" xml:space="preserve">
+    <value>默认全屏</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>详情</value>
   </data>
   <data name="DeviceStatus_Fault" xml:space="preserve">
     <value>故障</value>
@@ -163,8 +232,74 @@
   <data name="DeviceStatus_Unknown" xml:space="preserve">
     <value>未知状态</value>
   </data>
+  <data name="DeviceTag" xml:space="preserve">
+    <value>设备标识</value>
+  </data>
+  <data name="DeviceType" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="DiskAlarmThreshold" xml:space="preserve">
+    <value>磁盘报警阈值(%)</value>
+  </data>
+  <data name="DiskMonitorConfig" xml:space="preserve">
+    <value>磁盘监控设置</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="EnableDiskMonitor" xml:space="preserve">
+    <value>启用磁盘监控</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>结束时间</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="ExcelExport" xml:space="preserve">
+    <value>Excel导出</value>
+  </data>
+  <data name="ExcelImport" xml:space="preserve">
+    <value>Excel导入</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="FeedbackNode" xml:space="preserve">
+    <value>反馈节点</value>
+  </data>
+  <data name="FileExt" xml:space="preserve">
+    <value>文件拓展名</value>
+  </data>
+  <data name="FileNameColumn" xml:space="preserve">
+    <value>文件名列</value>
+  </data>
+  <data name="FirstHalf" xml:space="preserve">
+    <value>上半年</value>
+  </data>
+  <data name="FixedFileName" xml:space="preserve">
+    <value>固定文件名</value>
+  </data>
+  <data name="FolderPath" xml:space="preserve">
+    <value>文件夹路径</value>
+  </data>
   <data name="General" xml:space="preserve">
     <value>通用</value>
+  </data>
+  <data name="GroupColumn" xml:space="preserve">
+    <value>分组列</value>
+  </data>
+  <data name="HideTaskbarOnFull" xml:space="preserve">
+    <value>全屏隐藏任务栏</value>
+  </data>
+  <data name="HistoryData" xml:space="preserve">
+    <value>历史数据</value>
   </data>
   <data name="HistoryMenu" xml:space="preserve">
     <value>历史追溯</value>
@@ -172,8 +307,29 @@
   <data name="HistorySettings" xml:space="preserve">
     <value>历史设置</value>
   </data>
+  <data name="Info" xml:space="preserve">
+    <value>消息</value>
+  </data>
+  <data name="Input" xml:space="preserve">
+    <value>输入</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>语言</value>
+  </data>
+  <data name="Last7Days" xml:space="preserve">
+    <value>近7天</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>加载中</value>
+  </data>
+  <data name="LogConfig" xml:space="preserve">
+    <value>日志配置</value>
+  </data>
+  <data name="LogLevel" xml:space="preserve">
+    <value>日志级别</value>
+  </data>
+  <data name="MaxLogFiles" xml:space="preserve">
+    <value>最大日志文件数</value>
   </data>
   <data name="Menu_OpenConfigFolder" xml:space="preserve">
     <value>打开配置目录</value>
@@ -184,12 +340,60 @@
   <data name="MinimizeWindow" xml:space="preserve">
     <value>最小化</value>
   </data>
+  <data name="MiniTray" xml:space="preserve">
+    <value>最小化到系统托盘</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>型号</value>
+  </data>
+  <data name="ModelClass" xml:space="preserve">
+    <value>模型类</value>
+  </data>
   <data name="MonitorMenu" xml:space="preserve">
     <value>产线监测</value>
     <comment>产线监测</comment>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="Node" xml:space="preserve">
+    <value>节点</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>偏移量</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="OpsType" xml:space="preserve">
+    <value>操作类型</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="PicConfig" xml:space="preserve">
+    <value>图片配置</value>
+  </data>
   <data name="PlcSettings" xml:space="preserve">
     <value>PLC设置</value>
+  </data>
+  <data name="PlotConfig" xml:space="preserve">
+    <value>图表配置</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>质量</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>询问</value>
+  </data>
+  <data name="QuickSelect" xml:space="preserve">
+    <value>快速选择</value>
+  </data>
+  <data name="Rack" xml:space="preserve">
+    <value>机架</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>刷新</value>
@@ -200,16 +404,139 @@
   <data name="RestoreWindow" xml:space="preserve">
     <value>最大化/还原</value>
   </data>
+  <data name="Retry" xml:space="preserve">
+    <value>重试</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>搜索</value>
+  </data>
+  <data name="SecondHalf" xml:space="preserve">
+    <value>下半年</value>
+  </data>
+  <data name="SetDB" xml:space="preserve">
+    <value>设置DB</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>设置</value>
   </data>
+  <data name="shColConfig" xml:space="preserve">
+    <value>显示/隐藏列配置</value>
+  </data>
+  <data name="ShowCol" xml:space="preserve">
+    <value>显示列</value>
+  </data>
+  <data name="ShowPic" xml:space="preserve">
+    <value>显示图片</value>
+  </data>
+  <data name="ShowPlot" xml:space="preserve">
+    <value>显示图表</value>
+  </data>
+  <data name="Slot" xml:space="preserve">
+    <value>插槽</value>
+  </data>
+  <data name="SortField" xml:space="preserve">
+    <value>排序字段</value>
+  </data>
+  <data name="SortType" xml:space="preserve">
+    <value>排序方式</value>
+  </data>
+  <data name="StartOnBoot" xml:space="preserve">
+    <value>开机自动启动</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>开始时间</value>
+  </data>
+  <data name="StartupConfig" xml:space="preserve">
+    <value>启动设置</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>成功</value>
+  </data>
   <data name="SystemSettings" xml:space="preserve">
     <value>系统设置</value>
   </data>
+  <data name="TargetDisk" xml:space="preserve">
+    <value>目标磁盘</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>测试</value>
+  </data>
+  <data name="ThisMonth" xml:space="preserve">
+    <value>本月</value>
+  </data>
+  <data name="ThisQuarter" xml:space="preserve">
+    <value>本季度</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>本周</value>
+  </data>
+  <data name="ThisYear" xml:space="preserve">
+    <value>今年</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Tip_CloseApp" xml:space="preserve">
+    <value>确定要关闭应用程序吗？</value>
+  </data>
+  <data name="Tip_EnterPassword" xml:space="preserve">
+    <value>输入密码</value>
+  </data>
+  <data name="Tip_IncorrectPassword" xml:space="preserve">
+    <value>密码错误</value>
+  </data>
+  <data name="Tip_InputContent" xml:space="preserve">
+    <value>请输入内容</value>
+  </data>
+  <data name="Tip_NoData" xml:space="preserve">
+    <value>暂无数据</value>
+  </data>
   <data name="Tip_UnSavedChanges" xml:space="preserve">
     <value>未保存的更改</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>今天</value>
+  </data>
+  <data name="TrendPlot" xml:space="preserve">
+    <value>趋势图表</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="UpdateTime" xml:space="preserve">
+    <value>更新时间</value>
+  </data>
+  <data name="UseIntegratedSecurity" xml:space="preserve">
+    <value>是否使用集成安全</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="Validate" xml:space="preserve">
+    <value>校验</value>
+  </data>
+  <data name="Vin" xml:space="preserve">
+    <value>零件码</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Workstation" xml:space="preserve">
+    <value>工作站</value>
+  </data>
+  <data name="XAxisLabel" xml:space="preserve">
+    <value>X轴标签</value>
+  </data>
+  <data name="YAxisLabel" xml:space="preserve">
+    <value>Y轴标签</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
   </data>
 </root>

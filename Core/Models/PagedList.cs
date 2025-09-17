@@ -1,4 +1,6 @@
-﻿namespace Core.Models;
+﻿using Core.Interfaces;
+
+namespace Core.Models;
 
 public class PagedList<T>
 {
@@ -14,4 +16,13 @@ public class PagedList<T>
         CurrentPage = currentPage;
         PageSize = size;
     }
+}
+
+/// <summary>
+/// 分页查询基础类
+/// </summary>
+public sealed class PagedQueryBase: IPagedQuery
+{
+    public int PageIndex { get; set; } = 1;
+    public int PageSize { get; set; } = 10;
 }

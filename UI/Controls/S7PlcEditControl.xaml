@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
              xmlns:viewModels="clr-namespace:UI.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:S7PlcEditViewModel}"
              mc:Ignorable="d"
@@ -16,31 +17,31 @@
             <!-- 第一行 -->
             <Grid Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Key:" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
+                <TextBlock Text="Key" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
                 <TextBox Text="{Binding Key}" Grid.Column="1" />
             </Grid>
 
             <!-- 第二行 -->
             <Grid Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="名称:" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
+                <TextBlock Text="{loc:Lang Name}" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
                 <TextBox Text="{Binding Title}" Grid.Column="1" />
             </Grid>
 
             <!-- 第三行 -->
             <Grid Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="60" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="IP:" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
+                <TextBlock Text="IP" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
                 <TextBox Text="{Binding Ip}" Grid.Column="1" />
                 <Button Grid.Column="2" Margin="0" Command="{Binding PingCommand}">
                     <Button.Content>
@@ -59,10 +60,10 @@
             <!-- 第四行 -->
             <Grid Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="60" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="型号:" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
+                <TextBlock Text="{loc:Lang Model}" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
                 <ComboBox ItemsSource="{Binding AvailableTypes}" SelectedItem="{Binding Type}" MinWidth="200"
                           Grid.Column="1" />
             </Grid>
@@ -74,19 +75,19 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="60" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="机架:" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
+                    <TextBlock Text="{loc:Lang Rack}" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
                     <hc:NumericUpDown Value="{Binding Rack}" Grid.Column="1" VerticalAlignment="Center" />
                 </Grid>
 
                 <Grid Grid.Column="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="60" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="插槽:" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
+                    <TextBlock Text="{loc:Lang Slot}" VerticalAlignment="Center" Margin="5,0" Grid.Column="0" />
                     <hc:NumericUpDown Value="{Binding Slot}" Grid.Column="1" VerticalAlignment="Center" />
                 </Grid>
             </Grid>
@@ -109,7 +110,7 @@
                                                   DotDiameter="2"
                                                   Visibility="{Binding IsTestingConnection, Converter={StaticResource BoolToVisibilityConverter}}" />
                                 <!-- 按钮文本 -->
-                                <TextBlock Text="测试连接" />
+                                <TextBlock Text="{loc:Lang Test}" />
                             </StackPanel>
                         </Button.Content>
                     </Button>
@@ -124,7 +125,7 @@
                                                   Style="{StaticResource LoadingCircleLight}"
                                                   Visibility="{Binding IsSaving, Converter={StaticResource BoolToVisibilityConverter}}" />
                                 <!-- 按钮文本 -->
-                                <TextBlock Text="保存" />
+                                <TextBlock Text="{loc:Lang Save}"  Width="50" TextAlignment="Center" />
                             </StackPanel>
                         </Button.Content>
                     </Button>

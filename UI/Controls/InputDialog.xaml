@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
         mc:Ignorable="d"
         Title="输入对话框"
         Height="250" Width="450"
@@ -56,7 +57,7 @@
                     <!-- 标题 -->
                     <TextBlock x:Name="TitleTextBlock"
                                Grid.Column="1"
-                               Text="输入对话框"
+                               Text="{loc:Lang Input}"
                                Foreground="{StaticResource PrimaryTextBrush}"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center" />
@@ -79,7 +80,7 @@
                 <!-- 提示信息 -->
                 <TextBlock x:Name="PromptTextBlock"
                            Foreground="{StaticResource PrimaryTextBrush}"
-                           Text="请输入内容："
+                           Text="{loc:Lang Tip_InputContent}"
                            Margin="0,0,0,10" />
 
                 <!-- 输入字段 -->
@@ -94,7 +95,7 @@
                 <StackPanel x:Name="PasswordPanel"
                             Style="{StaticResource FormFieldStyle}"
                             Visibility="Collapsed">
-                    <Label Content="密码:"
+                    <Label Content="{loc:Lang Password}"
                            Style="{StaticResource FormLabelStyle}" />
                     <PasswordBox x:Name="PasswordBox"
                                  KeyDown="PasswordBox_KeyDown" />
@@ -114,11 +115,11 @@
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
                     <Button x:Name="CancelButton"
-                            Content="取消"
+                            Content="{loc:Lang Cancel}"
                             Margin="0,0,10,0"
                             Click="CancelButton_Click" />
                     <Button x:Name="OKButton"
-                            Content="确定"
+                            Content="{loc:Lang OK}"
                             Style="{StaticResource ButtonPrimary}"
                             MinWidth="80"
                             Click="OKButton_Click" />

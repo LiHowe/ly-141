@@ -6,6 +6,7 @@
                               xmlns:vm="clr-namespace:MainApp.ViewModels.Settings"
                               xmlns:converters="clr-namespace:Core.Converters;assembly=Core"
                               xmlns:hc="https://handyorg.github.io/handycontrol"
+                              xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
                               xmlns:controls="clr-namespace:UI.Controls;assembly=UI"
                               d:DataContext="{d:DesignInstance vm:SystemSettingsViewModel}"
                               Background="Transparent"
@@ -16,41 +17,41 @@
     </controls:BaseSettingsControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="10">
-            <GroupBox Header="启动设置" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}">
+            <GroupBox Header="{loc:Lang StartupConfig}" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}">
                 <StackPanel Margin="10">
                     <!-- 开机自动启动 -->
-                    <CheckBox Content="开机自动启动"
+                    <CheckBox Content="{loc:Lang StartOnBoot}"
                               IsChecked="{Binding IsUseAutoStart}"
                               Margin="0,0,0,10" />
 
                     <!-- 最小化到系统托盘 -->
-                    <CheckBox Content="最小化到系统托盘"
+                    <CheckBox Content="{loc:Lang MiniTray}"
                               IsChecked="{Binding IsMinimizeToTray}"
                               Margin="0,0,0,10" />
-                    <CheckBox Content="默认全屏"
+                    <CheckBox Content="{loc:Lang DefaultFullscreen}"
                               IsChecked="{Binding IsDefaultFullScreen}"
                               Margin="0,0,0,10" />
-                    <CheckBox Content="全屏隐藏任务栏"
+                    <CheckBox Content="{loc:Lang HideTaskbarOnFull}"
                               IsChecked="{Binding IsHideTaskbar}"
                               Margin="0,0,0,10" />
-                    <CheckBox Content="启用磁盘监控"
+                    <CheckBox Content="{loc:Lang EnableDiskMonitor}"
                               IsChecked="{Binding IsUseDiskWatcher}"
                               Margin="0,0,0,10" />
                 </StackPanel>
             </GroupBox>
             <!-- 日志设置 -->
-            <GroupBox Header="日志设置" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}">
+            <GroupBox Header="{loc:Lang LogConfig}" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}">
                 <StackPanel Margin="10">
                     <!-- 日志级别 -->
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBlock Text="日志级别:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <TextBlock Text="{loc:Lang LogLevel}" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
                         <hc:ComboBox ItemsSource="{Binding AvailableLogLevels}"
                                      SelectedItem="{Binding LogLevel}" MinWidth="200" />
                     </StackPanel>
 
                     <!-- 最大日志文件数 -->
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBlock Text="最大日志文件数:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <TextBlock Text="{loc:Lang MaxLogFiles}" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
                         <hc:NumericUpDown Value="{Binding MaxLogFiles}"
                                           Minimum="1" Maximum="365" MinWidth="200" />
                     </StackPanel>
@@ -58,17 +59,17 @@
             </GroupBox>
 
             <!-- 日志设置 -->
-            <GroupBox Header="磁盘监控设置" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}"
+            <GroupBox Header="{loc:Lang DiskMonitorConfig}" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}"
                       Visibility="{Binding IsUseDiskWatcher, Converter={StaticResource BoolToVisibilityConverter}}">
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBlock Text="磁盘报警阈值(%):" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <TextBlock Text="{loc:Lang DiskAlarmThreshold}" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
                         <hc:NumericUpDown Value="{Binding DiskRemainPct}"
                                           Minimum="1" Maximum="100" MinWidth="200" />
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBlock Text="监控磁盘:" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
+                        <TextBlock Text="{loc:Lang TargetDisk}" VerticalAlignment="Center" Margin="0,0,10,0" Width="120" />
                         <hc:ComboBox ItemsSource="{Binding AvailableDisks}"
                                      SelectedItem="{Binding WatchedDisk}" MinWidth="200" />
                     </StackPanel>

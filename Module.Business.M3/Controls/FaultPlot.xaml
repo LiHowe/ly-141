@@ -7,7 +7,7 @@
               xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              xmlns:local="clr-namespace:Module.Business.SG141.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="400">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -28,16 +28,24 @@
                     <TextBlock Text="{loc:Lang Block_FalutStatus}" Style="{StaticResource TextBlockDefaultBold}" FontSize="14"></TextBlock>
                 </StackPanel>
             </Border>
-            <lvc:PieChart Grid.Row="1" SeriesSource="{Binding Data}">
-                <lvc:PieChart.SeriesTemplate>
-                    <DataTemplate>
-                        <lvc:XamlPieSeries
-                    SeriesName="{Binding Name}"
-                    Values="{Binding Values}"
-                    MaxRadialColumnWidth="60"/>
-                    </DataTemplate>
-                </lvc:PieChart.SeriesTemplate>
-            </lvc:PieChart>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!-- 设备故障图表 -->
+                <lvc:PieChart Grid.Row="0" SeriesSource="{Binding Data}" Background="Transparent">
+                    <lvc:PieChart.SeriesTemplate>
+                        <DataTemplate>
+                            <lvc:XamlPieSeries
+                                SeriesName="{Binding Name}"
+                                Values="{Binding Values}"
+                                MaxRadialColumnWidth="60"/>     
+                        </DataTemplate>
+                    </lvc:PieChart.SeriesTemplate>
+                </lvc:PieChart>
+                
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

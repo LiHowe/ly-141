@@ -38,34 +38,26 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <!--<StackPanel Grid.Column="1" Width="200" Margin="0,0,10,0">
-                        <TextBlock Text="开始时间:" VerticalAlignment="Center" Margin="0, 0,0,5" />
-                        <hc:DateTimePicker SelectedDateTime="{Binding StartTime}" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2" Width="200" Margin="0,0,10,0">
-                        <TextBlock Text="结束时间:" VerticalAlignment="Center" Margin="0, 0,0,5" />
-                        <hc:DateTimePicker SelectedDateTime="{Binding EndTime}" />
-                    </StackPanel>-->
                     <controls:TimeSelector Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,10,0" StartTime="{Binding StartTime, Mode=TwoWay}" EndTime="{Binding EndTime, Mode=TwoWay}"/>
                     <StackPanel Grid.Column="3" Width="200" Margin="0,0,10,0">
-                        <TextBlock Text="零件码:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <TextBlock Text="{loc:Lang Vin}" VerticalAlignment="Center" Margin="0, 0,0,5" />
                         <TextBox Text="{Binding VinText}" />
                     </StackPanel>
                     <StackPanel Grid.Column="4" Width="100" Margin="0,0,10,0">
-                        <TextBlock Text="工作站:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <TextBlock Text="{loc:Lang Workstation}" VerticalAlignment="Center" Margin="0, 0,0,5" />
                         <ComboBox ItemsSource="{Binding Workstations}"
                                   SelectedItem="{Binding Station}" />
                     </StackPanel>
                     <StackPanel Grid.Column="5" Width="100" Margin="0,0,10,0">
-                        <TextBlock Text="质量:" VerticalAlignment="Center" Margin="0, 0,0,5" />
+                        <TextBlock Text="{loc:Lang Quality}" VerticalAlignment="Center" Margin="0, 0,0,5" />
                         <ComboBox ItemsSource="{Binding AvailableQualityStatus}" SelectedItem="{Binding QualityStatus}" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="6" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Content="{loc:Lang Search}" Command="{Binding SearchCommand}" Width="80" Height="32"
                                 Style="{StaticResource ButtonPrimary}" Margin="5,0" />
-                        <Button Content="📁 导出" Command="{Binding ExportCommand}" Width="80" Height="32" Margin="5,0" />
-                        <Button Content="🔄 重置" Command="{Binding ResetCommand}" Width="80" Height="32" Margin="5,0" />
+                        <Button Content="{loc:Lang Export}" Command="{Binding ExportCommand}" Width="80" Height="32" Margin="5,0" />
+                        <Button Content="{loc:Lang Reset}" Command="{Binding ResetCommand}" Width="80" Height="32" Margin="5,0" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -91,7 +83,7 @@
                     <Border Grid.Row="0" CornerRadius="4,4,0,0" Height="40" Background="{DynamicResource TitleBarBrush}"
                             Padding="15,10">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="📋 历史数据列表" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
+                            <TextBlock Text="{loc:Lang HistoryData}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
                             <TextBlock Text="{Binding TotalCount}" Visibility="{Binding TotalCount, Converter={StaticResource Boolean2VisibilityConverter}}" FontWeight="Bold" Margin="10, 0" Foreground="White" VerticalAlignment="Center" d:Text="0" />
                         </StackPanel>
                     </Border>
@@ -102,11 +94,11 @@
                               Grid.Row="1"
                               IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="零件码" Binding="{Binding SerialNo}" Width="Auto" />
-                            <DataGridTextColumn Header="创建时间"
+                            <DataGridTextColumn Header="{loc:Lang Vin}" Binding="{Binding SerialNo}" Width="Auto" />
+                            <DataGridTextColumn Header="{loc:Lang CreateTime}"
                                                 Binding="{Binding CreateTime, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}"
                                                 Width="Auto" />
-                            <DataGridTextColumn Header="质量" Binding="{Binding Quality}" Width="Auto" />
+                            <DataGridTextColumn Header="{loc:Lang Quality}" Binding="{Binding Quality}" Width="Auto" />
                         </DataGrid.Columns>
                         <DataGrid.Style>
                             <Style TargetType="DataGrid" BasedOn="{StaticResource DataGridBaseStyle}">
@@ -115,7 +107,7 @@
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate>
-                                                    <TextBlock Text="暂无数据" HorizontalAlignment="Center"
+                                                    <TextBlock Text="{loc:Lang Tip_NoData}" HorizontalAlignment="Center"
                                                                VerticalAlignment="Center" />
                                                 </ControlTemplate>
                                             </Setter.Value>
@@ -126,12 +118,12 @@
                         </DataGrid.Style>
                     </DataGrid>
                     <!-- 加载指示器 -->
-                    <Border Background="#80FFFFFF"
+                    <Border Background="{StaticResource DarkOpacityBrush}"
                             Grid.Row="1"
                             Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <hc:LoadingCircle Grid.Row="1" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                            <TextBlock Text="正在加载..." HorizontalAlignment="Center" Margin="0, 10, 0 ,0" />
+                            <TextBlock Text="{loc:Lang Loading}" HorizontalAlignment="Center" Margin="0, 10, 0 ,0" />
                         </StackPanel>
                     </Border>
 
@@ -159,7 +151,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="🗃️ 数据详情 - " FontWeight="Bold" VerticalAlignment="Center"
+                                <TextBlock Text="{loc:Lang DataDetail}" FontWeight="Bold" VerticalAlignment="Center"
                                            Foreground="White" Margin="15,10,0, 10" />
                                 <TextBlock Text="{Binding SelectedPartSerialNo}" FontWeight="Bold"
                                            VerticalAlignment="Center" Foreground="White" Margin="0,10" />
@@ -211,7 +203,7 @@
                                         <Setter Property="Template">
                                             <Setter.Value>
                                                 <ControlTemplate>
-                                                    <TextBlock Text="暂无数据" HorizontalAlignment="Center"
+                                                    <TextBlock Text="{loc:Lang NoData}" HorizontalAlignment="Center"
                                                                VerticalAlignment="Center" />
                                                 </ControlTemplate>
                                             </Setter.Value>
@@ -222,12 +214,12 @@
                         </DataGrid.Style>
                     </DataGrid>
                     <!-- 加载指示器 -->
-                    <Border Background="#80FFFFFF"
+                    <Border Background="{StaticResource DarkOpacityBrush}"
                         Grid.Row="1"
                         Visibility="{Binding IsLoadingDetail, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <hc:LoadingCircle/>
-                            <TextBlock Text="正在加载..." Margin="0,10,0,0" HorizontalAlignment="Center" />
+                            <TextBlock Text="{loc:Lang Loading}" Margin="0,10,0,0" HorizontalAlignment="Center" />
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -244,7 +236,7 @@
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Background="{DynamicResource TitleBarBrush}" CornerRadius="4,4,0,0"
                             Padding="15,10" Height="40">
-                        <TextBlock Text="📈 趋势图表" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
+                        <TextBlock Text="{loc:Lang TrendPlot}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
                     </Border>
                     
                     <StackPanel Grid.Row="1" Margin="10">
@@ -260,12 +252,12 @@
                         </ItemsControl>
                     </StackPanel>
                     <!-- 加载指示器 -->
-                    <Border Background="#80FFFFFF"
+                    <Border Background="{StaticResource DarkOpacityBrush}"
                             Grid.Row="1"
                             Visibility="{Binding IsLoadingDetail, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <hc:LoadingCircle/>
-                            <TextBlock Text="正在加载..." Margin="0,10,0,0" HorizontalAlignment="Center" />
+                            <TextBlock Text="{loc:Lang Loading}" Margin="0,10,0,0" HorizontalAlignment="Center" />
                         </StackPanel>
                     </Border>
                 </Grid>

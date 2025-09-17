@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
              mc:Ignorable="d"
              Background="Transparent"
              d:DesignHeight="400" d:DesignWidth="600">
@@ -27,13 +28,13 @@
 
             <!-- 操作栏 -->
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,12">
-                <Button Content="添加节点" Command="{Binding AddNodeCommand}" Padding="8,4" Margin="0,0,8,0" />
-                <Button Content="删除节点" Command="{Binding DeleteNodeCommand}" Padding="8,4" Margin="8,0,8,0" />
-                <Button Content="统一设置DB" Command="{Binding SetAllDbCommand}" Padding="8,4" Margin="8,0,8,0" />
-                <Button Content="校验节点" Command="{Binding ValidateNodesCommand}" Padding="8,4" Margin="8,0,8,0" />
-                <Button Content="Excel导入" Command="{Binding ImportExcelCommand}" Padding="8,4" Margin="8,0,8,0" />
-                <Button Content="Excel导出" Command="{Binding ExportExcelCommand}" Padding="8,4" Margin="8,0,8,0" />
-                <Button Content="测试节点" Command="{Binding TestCommand}" Padding="8,4" Margin="8,0,8,0" />
+                <Button Content="{loc:Lang Add}" Command="{Binding AddNodeCommand}" Padding="8,4" Margin="0,0,8,0" />
+                <Button Content="{loc:Lang Delete}" Command="{Binding DeleteNodeCommand}" Padding="8,4" Margin="8,0,8,0" />
+                <Button Content="{loc:Lang SetDB}" Command="{Binding SetAllDbCommand}" Padding="8,4" Margin="8,0,8,0" />
+                <Button Content="{loc:Lang Validate}" Command="{Binding ValidateNodesCommand}" Padding="8,4" Margin="8,0,8,0" />
+                <Button Content="{loc:Lang ExcelImport}" Command="{Binding ImportExcelCommand}" Padding="8,4" Margin="8,0,8,0" />
+                <Button Content="{loc:Lang ExcelExport}" Command="{Binding ExportExcelCommand}" Padding="8,4" Margin="8,0,8,0" />
+                <Button Content="{loc:Lang Test}" Command="{Binding TestCommand}" Padding="8,4" Margin="8,0,8,0" />
                 <!-- <Button Content="保存配置" Command="{Binding SaveCommand}" Style="{StaticResource ButtonPrimary}" Padding="8,4" Margin="8,0,8,0"/> -->
             </StackPanel>
 
@@ -41,15 +42,15 @@
             <DataGrid Grid.Row="1" ItemsSource="{Binding Nodes}" AutoGenerateColumns="False" Margin="0,0,0,8"
                       x:Name="NodesDataGrid" SelectedItem="{Binding SelectedNode}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="标题" Binding="{Binding Title}" Width="100" />
+                    <DataGridTextColumn Header="{loc:Lang Title}" Binding="{Binding Title}" Width="100" />
                     <DataGridTextColumn Header="DB" Binding="{Binding Db}" Width="60" />
-                    <DataGridTextColumn Header="偏移量" Binding="{Binding Offset}" Width="80" />
-                    <DataGridTextColumn Header="类型" Binding="{Binding Type}" Width="80" />
-                    <DataGridTextColumn Header="位长度" Binding="{Binding BitLength}" Width="60" />
-                    <DataGridTextColumn Header="描述" Binding="{Binding Description}" Width="120" />
-                    <DataGridCheckBoxColumn Header="启用" Binding="{Binding Enabled}" Width="60" />
-                    <DataGridCheckBoxColumn Header="需要反馈" Binding="{Binding NeedFeedback}" Width="80" />
-                    <DataGridTextColumn Header="反馈节点键" Binding="{Binding FeedbackNodeKey}" Width="100" />
+                    <DataGridTextColumn Header="{loc:Lang Offset}" Binding="{Binding Offset}" Width="80" />
+                    <DataGridTextColumn Header="{loc:Lang Type}" Binding="{Binding Type}" Width="80" />
+                    <DataGridTextColumn Header="{loc:Lang Bitlength}" Binding="{Binding BitLength}" Width="60" />
+                    <DataGridTextColumn Header="{loc:Lang Description}" Binding="{Binding Description}" Width="120" />
+                    <DataGridCheckBoxColumn Header="{loc:Lang Enable}" Binding="{Binding Enabled}" Width="60" />
+                    <DataGridCheckBoxColumn Header="{loc:Lang Feedback}" Binding="{Binding NeedFeedback}" Width="80" />
+                    <DataGridTextColumn Header="{loc:Lang FeedbackNode}" Binding="{Binding FeedbackNodeKey}" Width="100" />
                 </DataGrid.Columns>
             </DataGrid>
 

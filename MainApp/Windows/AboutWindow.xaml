@@ -22,16 +22,16 @@
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.2,0.2" EndPoint="1,1">
                     <GradientStop Color="{StaticResource PrimaryColor}" Offset="0" />
-                    <GradientStop Color="{StaticResource PrimaryLightColor}" Offset="1" />
+                    <GradientStop Color="{StaticResource LightPrimaryColor}" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel HorizontalAlignment="Center">
                 <!-- 应用图标 -->
 
-                <Image Source="/Resources/Images/logo_full.png" Width="70" Height="70" />
+                <Image Source="/Resources/Images/logo_white_full.png" Width="70" Height="70" />
 
                 <!-- 应用名称 -->
-                <TextBlock x:Name="AppNameTextBlock" Text="WinmTech-Scada" FontSize="28" FontWeight="Bold"
+                <TextBlock x:Name="AppNameTextBlock" Text="WinmTech SCADA" FontSize="28" FontWeight="Bold"
                            Foreground="White" HorizontalAlignment="Center" />
 
                 <!-- 副标题 -->
@@ -79,11 +79,11 @@
                     <StackPanel>
                         <TextBlock Text="主要功能" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" />
 
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBlock Text="✓" Foreground="{DynamicResource SuccessBrush}" FontWeight="Bold"
                                        Margin="0,0,10,0" />
                             <TextBlock Text="用户登录与权限管理" />
-                        </StackPanel>
+                        </StackPanel>-->
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBlock Text="✓" Foreground="{DynamicResource SuccessBrush}" FontWeight="Bold"
@@ -103,11 +103,11 @@
                             <TextBlock Text="历史数据查询与导出" />
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBlock Text="✓" Foreground="{DynamicResource SuccessBrush}" FontWeight="Bold"
                                        Margin="0,0,10,0" />
                             <TextBlock Text="阈值管理与报警监控" />
-                        </StackPanel>
+                        </StackPanel>-->
 
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                             <TextBlock Text="✓" Foreground="{DynamicResource SuccessBrush}" FontWeight="Bold"
@@ -130,7 +130,7 @@
                     <StackPanel>
                         <TextBlock Text="技术特点" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" />
 
-                        <TextBlock Text="• 现代化的WPF界面设计，支持主题切换" Margin="0,0,0,5" />
+                        <TextBlock Text="• 现代化的界面设计，支持主题切换" Margin="0,0,0,5" />
                         <TextBlock Text="• 模块化架构，支持插件式扩展" Margin="0,0,0,5" />
                         <TextBlock Text="• 高性能的数据采集与处理引擎" Margin="0,0,0,5" />
                         <TextBlock Text="• 完善的日志记录与错误处理机制" Margin="0,0,0,5" />
@@ -145,10 +145,10 @@
                         CornerRadius="5" Padding="20">
                     <StackPanel>
                         <TextBlock Text="版权信息" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" />
-                        <TextBlock Text="Copyright © 2024 WinmTech. All rights reserved." Margin="0,0,0,5" />
+                        <TextBlock Text="Copyright © 2025 WinmTech. All rights reserved." Margin="0,0,0,5" />
                         <TextBlock Text="本软件受版权法保护，未经授权不得复制或分发。" Margin="0,0,0,5" />
-                        <TextBlock Text="技术支持: support@winmtech.com" Margin="0,0,0,5" />
-                        <TextBlock Text="官方网站: www.winmtech.com" Margin="0,0,0,5" />
+                        <TextBlock Text="技术支持: support@winm-tech.com" Margin="0,0,0,5" />
+                        <TextBlock Text="官方网站: www.winm-tech.cn" Margin="0,0,0,5" />
                     </StackPanel>
                 </Border>
             </StackPanel>

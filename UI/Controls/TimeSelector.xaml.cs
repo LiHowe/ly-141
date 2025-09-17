@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Core.Localization;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -50,7 +51,13 @@ public partial class TimeSelector : UserControl
 	}
 
 	public ObservableCollection<string> QuickOptions { get; } =
-		new ObservableCollection<string> { "今日", "本周", "本月", "今年", "自定义" };
+		new ObservableCollection<string> {
+			LocalizationProvider.Default["Today"],
+			LocalizationProvider.Default["ThisWeek"],
+			LocalizationProvider.Default["ThisMonth"],
+			LocalizationProvider.Default["ThisYear"],
+			LocalizationProvider.Default["Custom"]
+		};
 
 	public TimeSelector()
 	{
@@ -64,13 +71,31 @@ public partial class TimeSelector : UserControl
 			ts.ApplyQuickSelection();
 	}
 
+	private string ToCn(string str)
+	{
+		Dictionary<string, string> map = new()
+		{
+			{ LocalizationProvider.Default["Today"], "今日" },
+			{ LocalizationProvider.Default["ThisWeek"], "本周" },
+			{ LocalizationProvider.Default["Last7Days"], "近7天" },
+			{ LocalizationProvider.Default["ThisMonth"], "本月" },
+			{ LocalizationProvider.Default["ThisQuarter"], "本季度" },
+			{ LocalizationProvider.Default["FirstHalf"], "上半年" },
+			{ LocalizationProvider.Default["SecondHalf"], "下半年" },
+			{ LocalizationProvider.Default["ThisYear"], "今年" },
+			{ LocalizationProvider.Default["Custom"], "自定义" },
+		};
+
+		return map.ContainsKey(str) ? map[str] : str;
+	}
+
 	private void ApplyQuickSelection()
 	{
 		if (SelectedQuickOption == "自定义")
 			return;
 
 		var now = DateTime.Now;
-		switch (SelectedQuickOption)
+		switch (ToCn(SelectedQuickOption))
 		{
 			case "今日":
 				StartTime = now.Date;

@@ -7,6 +7,7 @@
                               xmlns:vm="clr-namespace:MainApp.ViewModels.Settings"
                               xmlns:controls="clr-namespace:UI.Controls;assembly=UI"
                               xmlns:controlsvm="clr-namespace:UI.ViewModels;assembly=UI"
+                              xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
                               d:DataContext="{d:DesignInstance vm:PlcSettingsViewModel}"
                               mc:Ignorable="d"
                               Background="Transparent"
@@ -17,8 +18,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-            <Button Content="➕ 新增PLC" Command="{Binding AddPlcCommand}" Margin="0,0,10,0" />
-            <Button Content="🔗 测试全部连接" Command="{Binding TestAllConnectionCommand}" />
+            <Button Content="{loc:Lang Add}" Command="{Binding AddPlcCommand}" Margin="0,0,10,0" />
+            <Button Content="{loc:Lang Test}" Command="{Binding TestAllConnectionCommand}" />
         </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Configs}">

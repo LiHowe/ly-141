@@ -75,12 +75,12 @@ public partial class MainWindow : Window
             return;
         }
 
-        var (success, val) = InputDialog.ShowPasswordInput("提示", "请输入密码");
+        var (success, val) = InputDialog.ShowPasswordInput(LocalizationProvider.Default["Tip"], LocalizationProvider.Default["Tip_EnterPassword"]);
         if (success)
         {
             if (val != "winm666")
             {
-                MessageBox.Show("密码错误", "提示");
+                MessageBox.Show(LocalizationProvider.Default["Tip_IncorrectPassword"], LocalizationProvider.Default["Tip"]);
                 return;
             }
 
@@ -136,7 +136,7 @@ public partial class MainWindow : Window
     /// </summary>
     private void CloseButton_Click(object sender, RoutedEventArgs e)
     {
-        var res = MessageBox.Question("确定要关闭应用程序吗？");
+        var res = MessageBox.Question(LocalizationProvider.Default["Tip_CloseApp"]);
         if (res == MessageBoxResult.No)
             return;
 		Close();

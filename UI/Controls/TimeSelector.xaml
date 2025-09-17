@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:UI.Controls"
              xmlns:vm="clr-namespace:UI.ViewModels"
              xmlns:core="clr-namespace:Core.Converters;assembly=Core"
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="400">
@@ -18,12 +19,12 @@
         <!-- 时间选择区 -->
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="200" Margin="0,0,10,0">
-                <TextBlock Text="开始时间:" Margin="0,0,0,5"/>
+                <TextBlock Text="{loc:Lang StartTime}" Margin="0,0,0,5"/>
                 <hc:DateTimePicker SelectedDateTime="{Binding StartTime, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay}"
                                    IsEnabled="{Binding SelectedQuickOption, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource StringEqualsConverter}, ConverterParameter=自定义}" />
             </StackPanel>
             <StackPanel Width="200" Margin="0,0,10,0">
-                <TextBlock Text="结束时间:" Margin="0,0,0,5"/>
+                <TextBlock Text="{loc:Lang EndTime}" Margin="0,0,0,5"/>
                 <hc:DateTimePicker SelectedDateTime="{Binding EndTime, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay}"
                                    IsEnabled="{Binding SelectedQuickOption, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource StringEqualsConverter}, ConverterParameter=自定义}" />
             </StackPanel>
@@ -32,7 +33,7 @@
         <!-- 快捷选择区 -->
         <StackPanel Orientation="Horizontal" Margin="0,10,0,0"
                     Visibility="{Binding QuickSelectEnabled, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BoolToVisibilityConverter}}">
-            <TextBlock Text="快速选择:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBlock Text="{loc:Lang QuickSelect}" VerticalAlignment="Center" Margin="0,0,10,0"/>
             <ItemsControl ItemsSource="{Binding QuickOptions, RelativeSource={RelativeSource AncestorType=UserControl}}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

@@ -29,6 +29,7 @@
                 </StackPanel>
             </Border>
             <lvc:PieChart
+                Background="Transparent"
             Grid.Row="1"
             InitialRotation="-225"
             MaxAngle="270"

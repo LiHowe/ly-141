@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
         mc:Ignorable="d"
         Title="消息提示"
         Height="200" Width="400"
@@ -66,7 +67,7 @@
                     <!-- 标题 -->
                     <TextBlock x:Name="TitleTextBlock"
                                Grid.Column="1"
-                               Text="消息提示"
+                               Text="{loc:Lang Tip}"
                                Foreground="{StaticResource PrimaryTextBrush}"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center" />

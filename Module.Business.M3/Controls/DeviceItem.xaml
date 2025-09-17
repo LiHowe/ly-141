@@ -57,7 +57,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <!-- Icon -->
             <TextBlock Style="{StaticResource IconStyles}" Text="&#xeb64;" FontSize="16" />
@@ -67,13 +67,13 @@
                        FontWeight="Black"
                        FontSize="14"
                        VerticalAlignment="Center"
-                       Text="{Binding DeviceName, FallbackValue='测试设备'}" />
+                       Text="{Binding DeviceName, FallbackValue='未知设备'}" />
             <!-- Status Text -->
             <Border Grid.Column="2"
                     Background="{StaticResource DarkOpacityBrush}"
                     CornerRadius="10"
                     Height="20">
-                <TextBlock Text="{Binding StatusText, FallbackValue='?'}"
+                <TextBlock Text="{Binding StatusText, FallbackValue='未知状态'}"
                            Foreground="{StaticResource PrimaryTextBrush}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center" />

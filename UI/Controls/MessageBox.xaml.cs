@@ -1,3 +1,4 @@
+using Core.Localization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -49,33 +50,47 @@ public partial class MessageBox : Window
     /// <param name="type">消息类型</param>
     /// <param name="buttons">按钮组合</param>
     /// <param name="details">详细信息（可选）</param>
-    public static MessageBoxResult Show(string message, string title = "消息提示",
+    public static MessageBoxResult Show(string message, string title = "",
         MessageBoxType type = MessageBoxType.Information,
         MessageBoxButtons buttons = MessageBoxButtons.OK,
         string details = null)
     {
-        var messageBox = new MessageBox();
+        if (string.IsNullOrWhiteSpace(title))
+            title = GetDefaultTitle(type);
+		var messageBox = new MessageBox();
         messageBox.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         messageBox.SetupMessageBox(message, title, type, buttons, details);
         messageBox.ShowDialog();
         return messageBox.Result;
     }
 
-    /// <summary>
-    ///     显示消息框（指定父窗口）
-    /// </summary>
-    /// <param name="owner">父窗口</param>
-    /// <param name="message">消息内容</param>
-    /// <param name="title">标题</param>
-    /// <param name="type">消息类型</param>
-    /// <param name="buttons">按钮组合</param>
-    /// <param name="details">详细信息（可选）</param>
-    public static MessageBoxResult Show(Window owner, string message, string title = "消息提示",
+    private static string GetDefaultTitle(MessageBoxType type) => type switch
+    {
+        MessageBoxType.Information => LocalizationProvider.Default["Info"],
+        MessageBoxType.Warning => LocalizationProvider.Default["Warning"],
+        MessageBoxType.Error => LocalizationProvider.Default["Error"],
+        MessageBoxType.Success => LocalizationProvider.Default["Success"],
+        MessageBoxType.Question => LocalizationProvider.Default["Question"],
+        _ => LocalizationProvider.Default["Tip"]
+	};
+
+	/// <summary>
+	///     显示消息框（指定父窗口）
+	/// </summary>
+	/// <param name="owner">父窗口</param>
+	/// <param name="message">消息内容</param>
+	/// <param name="title">标题</param>
+	/// <param name="type">消息类型</param>
+	/// <param name="buttons">按钮组合</param>
+	/// <param name="details">详细信息（可选）</param>
+	public static MessageBoxResult Show(Window owner, string message, string title = "",
         MessageBoxType type = MessageBoxType.Information,
         MessageBoxButtons buttons = MessageBoxButtons.OK,
         string details = null)
     {
-        var messageBox = new MessageBox { Owner = owner };
+		if (string.IsNullOrWhiteSpace(title))
+			title = GetDefaultTitle(type);
+		var messageBox = new MessageBox { Owner = owner };
         messageBox.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         messageBox.SetupMessageBox(message, title, type, buttons, details);
         messageBox.ShowDialog();
@@ -174,20 +189,20 @@ public partial class MessageBox : Window
         switch (buttons)
         {
             case MessageBoxButtons.OK:
-                AddButton("确定", MessageBoxResult.OK, true);
+                AddButton(LocalizationProvider.Default["OK"], MessageBoxResult.OK, true);
                 break;
             case MessageBoxButtons.OKCancel:
-                AddButton("取消", MessageBoxResult.Cancel, false);
-                AddButton("确定", MessageBoxResult.OK, true);
+                AddButton(LocalizationProvider.Default["Cancel"], MessageBoxResult.Cancel, false);
+                AddButton(LocalizationProvider.Default["Ok"], MessageBoxResult.OK, true);
                 break;
             case MessageBoxButtons.YesNo:
-                AddButton("否", MessageBoxResult.No, false);
-                AddButton("是", MessageBoxResult.Yes, true);
+                AddButton(LocalizationProvider.Default["No"], MessageBoxResult.No, false);
+                AddButton(LocalizationProvider.Default["Yes"], MessageBoxResult.Yes, true);
                 break;
             case MessageBoxButtons.YesNoCancel:
-                AddButton("取消", MessageBoxResult.Cancel, false);
-                AddButton("否", MessageBoxResult.No, false);
-                AddButton("是", MessageBoxResult.Yes, true);
+                AddButton(LocalizationProvider.Default["Cancel"], MessageBoxResult.Cancel, false);
+                AddButton(LocalizationProvider.Default["No"], MessageBoxResult.No, false);
+                AddButton(LocalizationProvider.Default["Yes"], MessageBoxResult.Yes, true);
                 break;
         }
     }
@@ -255,9 +270,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："信息"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Info(string message, string title = "信息", string details = null)
+    public static MessageBoxResult Info(string message, string details = null)
     {
-        return Show(message, title, MessageBoxType.Information, MessageBoxButtons.OK, details);
+        return Show(message, GetDefaultTitle(MessageBoxType.Information), MessageBoxType.Information, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -268,9 +283,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："信息"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Info(Window owner, string message, string title = "信息", string details = null)
+    public static MessageBoxResult Info(Window owner, string message, string details = null)
     {
-        return Show(owner, message, title, MessageBoxType.Information, MessageBoxButtons.OK, details);
+        return Show(owner, message, GetDefaultTitle(MessageBoxType.Information), MessageBoxType.Information, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -280,9 +295,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："警告"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Warn(string message, string title = "警告", string details = null)
+    public static MessageBoxResult Warn(string message, string details = null)
     {
-        return Show(message, title, MessageBoxType.Warning, MessageBoxButtons.OK, details);
+        return Show(message, GetDefaultTitle(MessageBoxType.Warning), MessageBoxType.Warning, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -293,9 +308,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："警告"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Warn(Window owner, string message, string title = "警告", string details = null)
+    public static MessageBoxResult Warn(Window owner, string message, string details = null)
     {
-        return Show(owner, message, title, MessageBoxType.Warning, MessageBoxButtons.OK, details);
+        return Show(owner, message, GetDefaultTitle(MessageBoxType.Warning), MessageBoxType.Warning, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -305,9 +320,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："错误"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Error(string message, string title = "错误", string details = null)
+    public static MessageBoxResult Error(string message,  string details = null)
     {
-        return Show(message, title, MessageBoxType.Error, MessageBoxButtons.OK, details);
+        return Show(message, GetDefaultTitle(MessageBoxType.Error), MessageBoxType.Error, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -318,9 +333,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："错误"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Error(Window owner, string message, string title = "错误", string details = null)
+    public static MessageBoxResult Error(Window owner, string message,  string details = null)
     {
-        return Show(owner, message, title, MessageBoxType.Error, MessageBoxButtons.OK, details);
+        return Show(owner, message, GetDefaultTitle(MessageBoxType.Error), MessageBoxType.Error, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -330,9 +345,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："成功"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Success(string message, string title = "成功", string details = null)
+    public static MessageBoxResult Success(string message, string details = null)
     {
-        return Show(message, title, MessageBoxType.Success, MessageBoxButtons.OK, details);
+        return Show(message, GetDefaultTitle(MessageBoxType.Success), MessageBoxType.Success, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -343,9 +358,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："成功"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Success(Window owner, string message, string title = "成功", string details = null)
+    public static MessageBoxResult Success(Window owner, string message, string details = null)
     {
-        return Show(owner, message, title, MessageBoxType.Success, MessageBoxButtons.OK, details);
+        return Show(owner, message, GetDefaultTitle(MessageBoxType.Success), MessageBoxType.Success, MessageBoxButtons.OK, details);
     }
 
     /// <summary>
@@ -355,9 +370,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："询问"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Question(string message, string title = "询问", string details = null)
+    public static MessageBoxResult Question(string message, string details = null)
     {
-        return Show(message, title, MessageBoxType.Question, MessageBoxButtons.YesNo, details);
+        return Show(message, GetDefaultTitle(MessageBoxType.Question), MessageBoxType.Question, MessageBoxButtons.YesNo, details);
     }
 
     /// <summary>
@@ -368,9 +383,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："询问"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Question(Window owner, string message, string title = "询问", string details = null)
+    public static MessageBoxResult Question(Window owner, string message, string details = null)
     {
-        return Show(owner, message, title, MessageBoxType.Question, MessageBoxButtons.YesNo, details);
+        return Show(owner, message, GetDefaultTitle(MessageBoxType.Question), MessageBoxType.Question, MessageBoxButtons.YesNo, details);
     }
 
     /// <summary>
@@ -380,9 +395,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："确认"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Confirm(string message, string title = "确认", string details = null)
+    public static MessageBoxResult Confirm(string message, string details = null)
     {
-        return Show(message, title, MessageBoxType.Question, MessageBoxButtons.OKCancel, details);
+        return Show(message, GetDefaultTitle(MessageBoxType.Question), MessageBoxType.Question, MessageBoxButtons.OKCancel, details);
     }
 
     /// <summary>
@@ -393,9 +408,9 @@ public partial class MessageBox : Window
     /// <param name="title">标题（默认："确认"）</param>
     /// <param name="details">详细信息（可选）</param>
     /// <returns>消息框结果</returns>
-    public static MessageBoxResult Confirm(Window owner, string message, string title = "确认", string details = null)
+    public static MessageBoxResult Confirm(Window owner, string message, string details = null)
     {
-        return Show(owner, message, title, MessageBoxType.Question, MessageBoxButtons.OKCancel, details);
+        return Show(owner, message, GetDefaultTitle(MessageBoxType.Question), MessageBoxType.Question, MessageBoxButtons.OKCancel, details);
     }
 
     #endregion

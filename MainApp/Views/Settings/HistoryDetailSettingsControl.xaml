@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:settings="clr-namespace:MainApp.Views.Settings"
+             xmlns:loc="clr-namespace:Core.Localization;assembly=Core"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance settings:HistoryDetailSettingsViewModel}"
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="1600" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -77,7 +78,7 @@
                                             Style="{StaticResource ButtonDanger}"
                                             Command="{Binding DataContext.DeleteConfigCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                             CommandParameter="{Binding}"
-                                            ToolTip="删除配置" />
+                                            ToolTip="{loc:Lang Delete}" />
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -86,7 +87,7 @@
 
                 <!-- 底部按钮 -->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <Button Content="➕ 添加配置"
+                    <Button Content="{loc:Lang Add}"
                             Command="{Binding AddConfigCommand}"
                             Style="{StaticResource ButtonPrimary}"
                             Margin="0,0,10,0" />
@@ -117,7 +118,7 @@
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="0" >
                     <StackPanel IsEnabled="{Binding HasSelectedConfig}" Background="Transparent" >
                         <!-- 基本信息 -->
-                        <GroupBox Header="基本信息" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}">
+                        <GroupBox Header="{loc:Lang BasicInfo}" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}">
                             <Grid Margin="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -131,13 +132,13 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Row="0" Grid.Column="0" Text="标题:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="{loc:Lang Title}" VerticalAlignment="Center"
                                            Margin="0,0,10,10" />
                                 <TextBox Grid.Row="0" Grid.Column="1"
                                          Text="{Binding SelectedConfig.Title, UpdateSourceTrigger=PropertyChanged}"
                                          Margin="0,0,0,10" />
 
-                                <TextBlock Grid.Row="1" Grid.Column="0" Text="模型类:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{loc:Lang ModelClass}" VerticalAlignment="Center"
                                            Margin="0,0,10,10" />
                                 <ComboBox Grid.Row="1" Grid.Column="1"
                                           ItemsSource="{Binding AvailableModels}"
@@ -145,13 +146,13 @@
                                           SelectionChanged="OnModelSelectionChanged"
                                           Margin="0,0,0,10" />
 
-                                <TextBlock Grid.Row="2" Grid.Column="0" Text="排序字段:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="{loc:Lang SortField}" VerticalAlignment="Center"
                                            Margin="0,0,10,10" />
                                 <TextBox Grid.Row="2" Grid.Column="1"
                                          Text="{Binding SelectedConfig.OrderBy, UpdateSourceTrigger=PropertyChanged}"
                                          Margin="0,0,0,10" />
 
-                                <TextBlock Grid.Row="3" Grid.Column="0" Text="排序方式:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="{loc:Lang SortType}" VerticalAlignment="Center"
                                            Margin="0,0,10,0" />
                                 <ComboBox Grid.Row="3" Grid.Column="1"
                                           SelectedItem="{Binding SelectedConfig.OrderByType}"
@@ -159,15 +160,15 @@
                                 <!-- 显示选项 -->
                                 <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"
                                             Margin="0, 10">
-                                    <CheckBox Content="显示图表" IsChecked="{Binding SelectedConfig.ShowPlot}"
+                                    <CheckBox Content="{loc:Lang ShowPlot}" IsChecked="{Binding SelectedConfig.ShowPlot}"
                                               Margin="0,0,10,0" />
-                                    <CheckBox Content="显示图片" IsChecked="{Binding SelectedConfig.ShowImage}" />
+                                    <CheckBox Content="{loc:Lang ShowPic}" IsChecked="{Binding SelectedConfig.ShowImage}" />
                                 </StackPanel>
                             </Grid>
                         </GroupBox>
 
                         <!-- 列配置 -->
-                        <GroupBox Header="显示/隐藏列配置" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}">
+                        <GroupBox Header="{loc:Lang shColConfig}" Margin="0,0,0,15" Style="{StaticResource GroupBoxTab}">
                             <Grid Margin="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -175,10 +176,10 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,10">
-                                    <TextBlock Text="操作类型:" VerticalAlignment="Center" Margin="0,0,10,0" />
+                                    <TextBlock Text="{loc:Lang OpsType}" VerticalAlignment="Center" Margin="0,0,10,0" />
                                     <!-- 切换按钮 -->
                                     <ToggleButton x:Name="ColumnModeToggle"
-                                                  Content="显示列"
+                                                  Content="{loc:Lang ShowCol}"
                                                   Style="{StaticResource ToggleButtonSwitch}"
                                                   IsChecked="{Binding IsShowSpecificColumns}" />
                                 </StackPanel>
@@ -208,7 +209,7 @@
                         </GroupBox>
 
                         <!-- 图表配置 -->
-                        <GroupBox Header="图表配置" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}"
+                        <GroupBox Header="{loc:Lang PlotConfig}" Margin="0,0,0,15"  Style="{StaticResource GroupBoxTab}"
                                   Visibility="{Binding SelectedConfig.ShowPlot, Converter={StaticResource Boolean2VisibilityConverter}}">
                             <Grid Margin="0">
                                 <Grid.ColumnDefinitions>
@@ -275,7 +276,7 @@
                                                                     Style="{StaticResource ButtonDanger}"
                                                                     Command="{Binding DataContext.DeletePlotCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                                                     CommandParameter="{Binding}"
-                                                                    ToolTip="删除图表" />
+                                                                    ToolTip="{loc:Lang Delete}" />
                                                         </Grid>
                                                     </Border>
                                                 </DataTemplate>
@@ -283,7 +284,7 @@
                                         </ListBox>
 
                                         <!-- 底部按钮 -->
-                                        <Button Grid.Row="2" Content="➕ 添加图表"
+                                        <Button Grid.Row="2" Content="{loc:Lang Add}"
                                                 Command="{Binding AddPlotCommand}"
                                                 Style="{StaticResource ButtonPrimary}"
                                                 Height="32" Margin="10" />
@@ -321,25 +322,25 @@
                                                             <ColumnDefinition Width="*" />
                                                         </Grid.ColumnDefinitions>
 
-                                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="标题:"
+                                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{loc:Lang Title}"
                                                                    VerticalAlignment="Center" Margin="0,0,10,10" />
                                                         <TextBox Grid.Row="0" Grid.Column="1"
                                                                  Text="{Binding SelectedPlot.Title, UpdateSourceTrigger=PropertyChanged}"
                                                                  Margin="0,0,0,10" />
 
-                                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="X轴标签:"
+                                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{loc:Lang XAxisLabel}"
                                                                    VerticalAlignment="Center" Margin="0,0,10,10" />
                                                         <TextBox Grid.Row="1" Grid.Column="1"
                                                                  Text="{Binding SelectedPlot.XLabel, UpdateSourceTrigger=PropertyChanged}"
                                                                  Margin="0,0,0,10" />
 
-                                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Y轴标签:"
+                                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{loc:Lang YAxisLabel}"
                                                                    VerticalAlignment="Center" Margin="0,0,10,10" />
                                                         <TextBox Grid.Row="2" Grid.Column="1"
                                                                  Text="{Binding SelectedPlot.YLabel, UpdateSourceTrigger=PropertyChanged}"
                                                                  Margin="0,0,0,10" />
 
-                                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="分组列:"
+                                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{loc:Lang GroupColumn}"
                                                                    VerticalAlignment="Center" Margin="0,0,10,0" />
                                                         <ComboBox Grid.Row="3" Grid.Column="1"
                                                                   ItemsSource="{Binding ModelColumnNames}"
@@ -347,7 +348,7 @@
                                                     </Grid>
 
                                                 <!-- 数据列选择 -->
-                                                <GroupBox Header="数据列选择" Style="{StaticResource GroupBoxOriginal}">
+                                                <GroupBox Header="{loc:Lang DataColumn}" Style="{StaticResource GroupBoxOriginal}">
                                                     <ListBox ItemsSource="{Binding PlotColumns}"
                                                              Height="150"
                                                              ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -369,7 +370,7 @@
                         </GroupBox>
 
                         <!-- 图片配置 -->
-                        <GroupBox Header="图片配置"
+                        <GroupBox Header="{loc:Lang PicConfig}"
                                   Style="{StaticResource GroupBoxTab}"
                                   Visibility="{Binding SelectedConfig.ShowImage, Converter={StaticResource Boolean2VisibilityConverter}}">
                             <Grid Margin="10">
@@ -385,7 +386,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Grid.Row="0" Grid.Column="0" Text="文件夹路径:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="{loc:Lang FolderPath}" VerticalAlignment="Center"
                                            Margin="0,0,10,10" />
                                 <TextBox Grid.Row="0" Grid.Column="1"
                                          Text="{Binding SelectedConfig.Image.FolderPath, UpdateSourceTrigger=PropertyChanged}"
@@ -395,20 +396,20 @@
                                         Command="{Binding BrowseFolderCommand}"
                                         Width="30" Height="25" Margin="0,0,0,10" />
 
-                                <TextBlock Grid.Row="1" Grid.Column="0" Text="文件名列:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{loc:Lang FileNameColumn}" VerticalAlignment="Center"
                                            Margin="0,0,10,10" />
                                 <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                                           ItemsSource="{Binding ModelColumnNames}"
                                           SelectedItem="{Binding SelectedConfig.Image.Column}"
                                           Margin="0,0,0,10" />
 
-                                <TextBlock Grid.Row="2" Grid.Column="0" Text="固定文件名:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="{loc:Lang FixedFileName}" VerticalAlignment="Center"
                                            Margin="0,0,10,10" />
                                 <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                                          Text="{Binding SelectedConfig.Image.FileName, UpdateSourceTrigger=PropertyChanged}"
                                          Margin="0,0,0,10" />
 
-                                <TextBlock Grid.Row="3" Grid.Column="0" Text="文件扩展名:" VerticalAlignment="Center"
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="{loc:Lang FileExt}" VerticalAlignment="Center"
                                            Margin="0,0,10,0" />
                                 <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
                                           SelectedItem="{Binding SelectedConfig.Image.Extension}">

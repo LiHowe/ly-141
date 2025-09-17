@@ -95,7 +95,7 @@
                     <TextBlock x:Name="SystemVersionTextBlock" Text="1.0.0"
                                Style="{StaticResource StatusTextStyle}" FontWeight="SemiBold" />
                     <TextBlock Text=" | " Style="{StaticResource StatusTextStyle}" Margin="10,5,10,0" />
-                    <TextBlock Text="© 2024 沈阳维美智能工业科技有限公司" Style="{StaticResource StatusTextStyle}" />
+                    <TextBlock Text="© 2025 沈阳维美智能工业科技有限公司" Style="{StaticResource StatusTextStyle}" />
                 </StackPanel>
             </Grid>
 
